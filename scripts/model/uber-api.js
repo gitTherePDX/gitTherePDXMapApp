@@ -5,7 +5,7 @@
   var uberObject = {};
 
   uberObject.dataAll = [];
-
+  
   uberObject.getInfo = function() {
     var longitude = '-122.6765';
     var latitude = '45.5231';
