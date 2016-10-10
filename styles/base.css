@@ -1,40 +1,59 @@
+body {
+  background-color: rgb(238,154,0);
+}
+
+h1 {
+  text-align: center;
+}
+
 #title-bar {
   height: 3.5rem;
-  width: 95%;
+  width: 100%;
   background-color: orange;
 }
 
 #searchable {
   height: 8rem;
-  width: 95%;
-  background-color: red;
+  width: 100%;
+  background-color: rgb(0,75,255);
+  margin: .25rem 0;
   padding-top: 0.1rem;
+
 }
 
 #location {
   height: 2rem;
-  width: 90%;
-  background-color: chartreuse;
+  width: 95%;
+  background-color: rgb(0,238,238);
   margin-left: 0.1rem;
 }
 
 #transit-options {
   height: 3rem;
-  width: 90%;
-  background-color: chartreuse;
+  width: 95%;
+  background-color: rgb(0,238,238);
   margin: 0.1rem;
 }
 
 #results {
-  height: 10rem;
-  width: 95%;
-  background-color: blue;
+  height: 22rem;
+  width: 100%;
+  background-color: rgb(0,75,255);
+  margin: .25rem 0;
+  padding-top: .1rem;
 }
 
 #wait-time {
   height: 3rem;
-  width: 90%;
-  background-color: aqua;
+  width: 95%;
+  background-color: rgb(0,238,238);
+  margin: 0.1rem;
+}
+
+#eta-visualization {
+  height: 15rem;
+  width: 95%;
+  background-color: rgb(0,238,238);
   margin: 0.1rem;
 }
 
@@ -59,7 +78,7 @@
   font-size: 1.2rem;
 
   /*positioning*/
-  margin: 0.5rem 2rem 0 0;
+  margin: 0.5rem 2.45rem 0 0;
   float: right;
 }
 
