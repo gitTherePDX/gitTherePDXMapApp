@@ -21,7 +21,7 @@ function proxyUber(request, response) {
   }))(request, response);
 };
 
-app.get('/uber/*', proxyUber);
+//app.get('/uber/*', proxyUber);
 
 app.use(express.static('./'));
 

@@ -12,7 +12,7 @@ lyftApi.callApi = function(queryString, bearerToken) {
     }
   }).done(function(data){
     console.log(data.eta_estimates);
-    data.eta_estimates = lyftApi.eta;
+    lyftApi.eta = data.eta_estimates;
   });
 };
 lyftApi.callApi();
