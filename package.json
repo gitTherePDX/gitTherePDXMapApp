@@ -1,0 +1,24 @@
+{
+  "name": "gittherepdxmapapp",
+  "version": "1.0.0",
+  "description": "Map app collaboration",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gitTherePDX/gitTherePDXMapApp.git"
+  },
+  "author": "Christopher Bruner, David Chase, and Tim Combs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gitTherePDX/gitTherePDXMapApp/issues"
+  },
+  "homepage": "https://github.com/gitTherePDX/gitTherePDXMapApp#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-request-proxy": "^2.0.0"
+  }
+}
