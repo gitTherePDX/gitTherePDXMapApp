@@ -16,10 +16,65 @@
 <body>
   <main>
     <a href="/uber">Uber here</a>
+
+    <div id="title-bar">
+      <!-- make these line up horizontal inline-block? -->
+      <div id="logo"><!-- some svg animation?, some module animation --></div>
+      <h1>gitTherePDX.com</h1>
+      <div id="hamburger"></div>
+    </div>
+
+    <div id="searchable">
+      <form action="">
+        <div id="location">
+          <label>Location </label><input name="Location" style="width: 50rem" placeholder="Enter address or closest intersection">
+        </div>
+
+        <div id="transit-options">
+          <span>Transit Options</span><br>
+          <input name="Biketown" type="checkbox" value="Biketown"> Biketown
+          <input name="Lyft" type="checkbox" value="Biketown"> Lyft
+          <input name="Uber" type="checkbox" value="Uber"> Uber </div>
+        <div id="search">
+          <input class="button" id="submit" type="submit" value="submit">
+        </div>
+      </form>
+    </div>
+
+
+    <div id="results">
+      <div id="wait-time">
+        <span>Max Wait/Walk Time</span><br>
+        <input name="five-min" type="radio"> 5 min
+        <input name="seven-min" type="radio"> 7 min
+        <input name="fifteen-min" type="radio"> 15 min
+      </div>
+        <div id="updatable">
+        <form>
+          <input class="button" id="update" type="submit" value="update">
+        </form>
+        </div>
+      </div>
+
+    <div id="time-visualization">
+    </div>
+  </div>
+
+  <!-- map is now a pop-up if user picks biketown -->
+  <div class="bike-map">
+  </div>
+
+  <!-- uber popup -->
+  <div class="uber-pop">
+  </div>
+
+  <!-- lyft popup -->
+  <div class="lyft-pop">
+  </div>
   </main>
-  <footer>
-    &copy; 2016 Christopher Bruner | My Blog | Happy Coding Everyone!
-  </footer>
+
+  <footer>&copy;2016 | gitTherePDX | Intersect With Transit!</footer>
+
   <script src="vendor/page.js" type="text/javascript"></script>
   <script src="vendor/jquery-3.1.1.js" type="text/javascript"></script>
   <script src="vendor/handlebars-v4.0.5.js" type="text/javascript"></script>
