@@ -11,7 +11,7 @@
   <script id="handlebars-template" type="text/x-handlebars-template">
 
   </script>
-  <title></title>
+  <title>gitTherePDX - Intersect with Transit</title>
 </head>
 <body>
   <main>
@@ -28,7 +28,7 @@
     <div id="searchable">
       <form action="">
         <div id="location">
-          <label>Location </label><input name="Location" style="width: 50rem" placeholder="Enter address or closest intersection">
+          <label>Location </label><input name="Location" style="width: 75%" placeholder="Enter address or closest intersection">
         </div>
 
         <div id="transit-options">
@@ -50,38 +50,46 @@
         <input name="seven-min" type="radio"> 7 min
         <input name="fifteen-min" type="radio"> 15 min
       </div>
-        <div id="updatable">
+
+      <div id="eta-visualization">
+          <canvas id="eta-canvas" height="12rem" width="75%"></canvas>
+      </div>
+
+
+
+      <div id="updatable">
         <form>
           <input class="button" id="update" type="submit" value="update">
         </form>
         </div>
       </div>
-
-    <div id="time-visualization">
     </div>
-  </div>
 
-  <!-- map is now a pop-up if user picks biketown -->
-  <div class="bike-map">
-  </div>
+    <!-- map is now a pop-up if user picks biketown -->
+    <div class="bike-map">
+    </div>
 
-  <!-- uber popup -->
-  <div class="uber-pop">
-  </div>
+    <!-- uber popup -->
+    <div class="uber-pop">
+    </div>
 
-  <!-- lyft popup -->
-  <div class="lyft-pop">
-  </div>
+    <!-- lyft popup -->
+    <div class="lyft-pop">
+    </div>
   </main>
 
   <footer>&copy;2016 | gitTherePDX | Intersect With Transit!</footer>
 
+  <!-- vendor scripts -->
   <script src="vendor/page.js" type="text/javascript"></script>
   <script src="vendor/jquery-3.1.1.js" type="text/javascript"></script>
   <script src="vendor/handlebars-v4.0.5.js" type="text/javascript"></script>
   <script src="vendor/marked.js" type="text/javascript"></script>
   <script src="vendor/highlight.pack.js" type="text/javascript"></script>
   <script src="vendor/webdb.js" type="text/javascript"></script>
+
+  <!-- app scripts -->
+  <script src="scripts/time-visualize.js" type="text/javascript"></script>
   <script src="scripts/controller/routes.js" type="text/javascript"></script>
   <script src="scripts/model/lyft-api.js" type="text/javascript"></script>
   <script src="scripts/model/uber-api.js" type="text/javascript"></script>
