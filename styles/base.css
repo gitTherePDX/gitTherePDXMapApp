@@ -1,0 +1,84 @@
+#title-bar {
+  height: 3.5rem;
+  width: 95%;
+  background-color: orange;
+}
+
+#searchable {
+  height: 8rem;
+  width: 95%;
+  background-color: red;
+  padding-top: 0.1rem;
+}
+
+#location {
+  height: 2rem;
+  width: 90%;
+  background-color: chartreuse;
+  margin-left: 0.1rem;
+}
+
+#transit-options {
+  height: 3rem;
+  width: 90%;
+  background-color: chartreuse;
+  margin: 0.1rem;
+}
+
+#results {
+  height: 10rem;
+  width: 95%;
+  background-color: blue;
+}
+
+#wait-time {
+  height: 3rem;
+  width: 90%;
+  background-color: aqua;
+  margin: 0.1rem;
+}
+
+/*try to center using margin: 0 auto*/
+/*probs: check that containers have a width*/
+
+/*basic button styling*/
+.button {
+  padding: 0.25rem 0.75rem;
+  background-color: rgb(255,246,143);
+  /*transparent border*/
+  border: 1px solid rgba(0,0,0,0);
+
+  /*curved corners*/
+  border-radius: 0.4rem;
+
+  /*drop shadow*/
+  box-shadow: 0 0 0.75rem rgba(0,0,0,0.75);
+
+  /*text style*/
+  color: blue;
+  font-size: 1.2rem;
+
+  /*positioning*/
+  margin: 0.5rem 2rem 0 0;
+  float: right;
+}
+
+/*basic button hover & focus*/
+input#submit:hover, input#update:hover, input#submit:focus, input#update:focus {
+  background-color: rgb(255,215,0);
+  box-shadow: 0 0 .25rem rgba(0,0,0,0.75);
+}
+
+
+/*popup visualizations*/
+#bike-map {
+
+}
+
+#uber-pop {
+
+}
+
+#lyft-pop {
+
+}
