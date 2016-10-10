@@ -21,7 +21,25 @@ function proxyUber(request, response) {
   }))(request, response);
 };
 
-//app.get('/uber/*', proxyUber);
+function proxyLyft(request, response) {
+  console.log('Routing Lyft request for ');
+  console.log('the requst is ', request.params);
+  console.log('the response is ', response.params);
+  (requestProxy({
+    url: 'https://api.lyft.com/v1/eta',
+    query: {
+      lat: request.params[0].split('/')[0],
+      long: request.params[0].split('/')[1]
+    },
+    headers: {
+      Authorization: 'Token ' + process.env.LYFT_TOKEN
+    }
+  }))(request, response);
+}
+
+app.get('/uber/*', proxyUber);
+
+app.get('/lyft/*', proxyLyft);
 
 app.use(express.static('./'));
 

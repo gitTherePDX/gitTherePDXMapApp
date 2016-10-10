@@ -2,18 +2,21 @@ var lyftApi = {};
 
 lyftApi.eta = [];
 
-lyftApi.callApi = function(queryString, bearerToken) {
-  $.ajax({
-    url: 'https://api.lyft.com/v1/eta?lat=45.5170414&lng=-122.6767154',
-    method: 'GET',
-    dataType: 'json',
-    headers: {
-      'authorization': 'Bearer gAAAAABX-8BTUn98TzBZFffvp_Yv7Fw6ELG9uGuTi1SWx5_X0EMfl5X6d9MulK32OzGFx3yIP_7ThL_29-a1n8ExnXOd7FhWCpRNXD-kaYcARZIr9JVXJny5cLqEJZdtOPdFaA2au0X58ibjhWvQQxfVkJqsSZ-GrAxf2Ev8jxoQD2AlZaVmRg26fWUzeZevoY6zmLWEOtEcAS1SZOQNHcgUkkvdYFt0vQ=='
+lyftApi.callApi = function() {
+  var longitude = '-122.6765';
+  var latitude = '45.5231';
+  var ajaxQuery = {
+    url: 'data/lyft.json',
+    type: 'GET',
+    success: function(data, textStatus, jqXHR) {
+      lyftApi.eta = data;
+      console.log(lyftApi.eta);
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      console.log(jqXHR, textStatus, errorThrown);
     }
-  }).done(function(data){
-    console.log(data.eta_estimates);
-    lyftApi.eta = data.eta_estimates;
-  });
+  };
+  $.ajax(ajaxQuery);
 };
 lyftApi.callApi();
 console.log(lyftApi.eta);
