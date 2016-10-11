@@ -41,9 +41,27 @@
       });
     } else {
       //Browser doesn't support Geolocation :(
-      handleLocationError(false, mapViews.map, mapViews.map.getCenter());
       googleMapping.currentLocation = {lat: 45.5231, lng: -122.6765};
       googleMapping.map = firstFunction(13, googleMapping.currentLocation);
+      secondFunction(googleMapping.map);
+      handleLocationError(false, mapViews.map, mapViews.map.getCenter());
+    };
+  };
+
+  googleMapping.getUpdatedLocation = function(firstFunction,secondFunction,selectionObject) {
+    $('.bike-map').empty();
+    if (0 < selectionObject.address.length) {
+      new google.maps.Geocoder()
+      .geocode({address: selectionObject.address}, function(results) {
+        googleMapping.currentLocation = {
+          lat: results[0].geometry.location.lat(),
+          lng: results[0].geometry.location.lng()
+        };
+        googleMapping.map = googleMapping.createMap(13, googleMapping.currentLocation);
+        secondFunction(googleMapping.map);
+      });
+    } else {
+      googleMapping.map = firstFunction(googleMapping.createMap, mapViews.setMapOnAll);
       secondFunction(googleMapping.map);
     };
   };
