@@ -23,7 +23,7 @@
       success: function(data, textStatus, jqXHR) {
         lyftObject.dataAll = data;
         var eta = lyftObject.attachEta();
-        callback(context, eta , canvas.height / 2, 'blue', 20, 2, 'white', 'white', 'center', 'bold 1rem Arial', 'L', etaDots);
+        callback(context, eta, canvas.height / 2, 'lyft-logo', etaLogos);
       },
       error: function(jqXHR, textStatus, errorThrown) {
         //console.log(jqXHR, textStatus, errorThrown);
@@ -33,5 +33,5 @@
   };
 
   module.lyftObject = lyftObject;
-  lyftObject.getInfo(drawCircle);
+  lyftObject.getInfo(drawLogo);
 })(window);
