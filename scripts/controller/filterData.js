@@ -10,9 +10,12 @@ filterData.getTransportationOption = function() {
   $('form').on('submit', function(event){
     event.preventDefault();
     $(this).find('input[type="checkbox"]:checked').each(function() {
-      console.log($(this).attr('value'));
-      
-      filterData[($(this).attr('value'))] = true;
+      console.log($(this).attr('value'), 'checked');
+      filterData[$(this).attr('value')] = true;
+    });
+    $(this).find('input[type="checkbox"]:not(:checked)').each(function(){
+      console.log($(this).attr('value'), 'not checked');
+      filterData[$(this).attr('value')] = false;
     });
   });
 };
