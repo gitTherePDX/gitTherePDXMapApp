@@ -45,29 +45,23 @@
           <input class="button" id="submit" type="submit" value="submit">
         </div>
       </form>
+
+      <div id="wait-time">
+        <span>Max Wait/Walk Time</span><br>
+          <input name="max-time" type="radio" value="18"> 5 min
+          <input name="max-time" type="radio" value="17" checked="true"> 7 min
+          <input name="max-time" type="radio" value="16"> 15 min
+      </div>
     </div>
 
 
     <div id="results">
-      <div id="wait-time">
-        <span>Max Wait/Walk Time</span><br>
-          <input name="max-time" type="radio"> 5 min
-          <input name="max-time" type="radio" checked="true"> 7 min
-          <input name="max-time" type="radio"> 15 min
-      </div>
-
       <div id="eta-visualization">
           <!-- <canvas id="eta-canvas" height="400px" width="600px"></canvas> -->
+
+          <!-- programmatically find method to re-size the canvas with new width and height if that doesn't work then find method to create the dom in javascript then attach the canvas to the dom -->
+
           <canvas id="eta-canvas"></canvas>
-      </div>
-
-
-
-      <div id="updatable">
-        <form>
-          <input class="button" id="update" type="submit" value="update">
-        </form>
-        </div>
       </div>
     </div>
 
@@ -97,12 +91,14 @@
 
   <!-- app scripts -->
   <script src="scripts/model/googleDataMapping.js" type="text/javascript"></script>
-  <script src="scripts/views/time-visualize.js" type="text/javascript"></script>
+
   <script src="scripts/controller/routes.js" type="text/javascript"></script>
   <script src="scripts/model/lyft-api.js" type="text/javascript"></script>
   <script src="scripts/model/uber-api.js" type="text/javascript"></script>
   <script src="scripts/controller/filterData.js" type="text/javascript"></script>
+  <script src="scripts/controller/canvasControl.js" type="text/javascript"></script>
   <script src="scripts/view/mapView.js" type="text/javascript"></script>
+  <script src="scripts/views/time-visualize.js" type="text/javascript"></script>
 
 
 </body>

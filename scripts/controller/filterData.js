@@ -2,8 +2,8 @@ var filterData = {
   address: '',
   Biketown: false,
   Lyft: false,
-  Uber: false
-
+  Uber: false,
+  zoom: 17
 };
 
 filterData.getTransportationOption = function() {
@@ -29,5 +29,14 @@ filterData.getTransportationOption = function() {
     event.preventDefault();
   });
 };
+
+filterData.getZoom = function() {
+  $('form').on('submit', function(event){
+    event.preventDefault();
+    filterData.zoom = $('#searchable').find('input[type="radio"]:checked').val();
+  });
+};
+
 filterData.getAddress();*/
 filterData.getTransportationOption();
+filterData.getZoom();
