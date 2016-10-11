@@ -1,43 +1,31 @@
 var canvas = document.getElementById('eta-canvas');
 var context = canvas.getContext('2d');
-var etaDots = [];
+var etaLogos = [];
 
-var draw = function(context, x, y, fillcolor, radius, linewidth, strokestyle, fontcolor, textalign, fonttype, filltext) {
-  context.beginPath();
-  context.arc(x, y, radius, 0, 2 * Math.PI, false);
-  context.fillStyle = fillcolor;
-  context.fill();
-  context.lineWidth = linewidth;
-  context.strokestyle = strokestyle;
-  context.stroke();
-
-  context.fillStyle = fontcolor;
-  context.textAlign = textalign;
-  context.font = fonttype;
-
-  context.fillText(filltext, x, y);
+var Logo = function(x, y) {
+  this.left = x;
+  this.top = y;
+  this.right = x + canvas.width/10;
+  this.bottom = y + canvas.height/5;
+  console.log(this.left, x, this.top, y, this.right, x + canvas.width/10, this.bottom, y + canvas.height/5);
 };
 
-var Circle = function(x, y, radius) {
-  this.left = x - radius;
-  this.top = y - radius;
-  this.right = x + radius;
-  this.bottom = y + radius;
-};
-
-var drawCircle = function(context, x, y, fillcolor, radius, linewidth, strokestyle, fontcolor, textalign, fonttype, filltext, etaDots, getInfo) {
-  draw(context, x, y, fillcolor, radius, linewidth, strokestyle, fontcolor, textalign, fonttype, filltext);
-  var etaDot = new Circle(x, y, radius);
-  etaDots.push(etaDot);
+var drawLogo = function(context, x, y, imgId, etaLogos) {
+  var img = document.getElementById(imgId);
+  context.drawImage(img,x,y,canvas.width/10,canvas.height/5); //add a width and height based on canvas.size/window.size
+  var etaLogo = new Logo(x, y);
+  etaLogos.push(etaLogo);
 };
 
 $('#eta-canvas').on('click', function(e){
   var clickedX = e.pageX - this.offsetLeft;
   var clickedY = e.pageY - this.offsetTop;
 
-  for (var i = 0; i < etaDots.length; i++) {
-    if (clickedX < etaDots[i].right && clickedX > etaDots[i].left && clickedY > etaDots[i].top && clickedY < etaDots[i].bottom) {
-      console.log('clicked dot', etaDots[i]);
+  for (var i = 0; i < etaLogos.length; i++) {
+    if (clickedX < etaLogos[i].right && clickedX > etaLogos[i].left
+        &&
+        clickedY > etaLogos[i].top && clickedY < etaLogos[i].bottom) {
+      console.log('clicked logo', etaLogos[i]);
     }
   }
 });
