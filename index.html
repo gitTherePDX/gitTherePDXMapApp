@@ -6,7 +6,7 @@
   <link href="vendor/normalize.css" type="text/css" rel="stylesheet">
   <link href="styles/base.css" type="text/css" rel="stylesheet">
   <link href="styles/layout.css" type="text/css" rel="stylesheet">
-  <link href="styles/modules.css" type="text/css" rel="stylesheet">
+  <link href="styles/module.css" type="text/css" rel="stylesheet">
   <link href="styles/icons.css" type="text/css" rel="stylesheet">
   <script id="handlebars-template" type="text/x-handlebars-template">
 
@@ -66,8 +66,7 @@
     </div>
 
     <!-- map is now a pop-up if user picks biketown -->
-    <div class="bike-map">
-    </div>
+    <div class="bike-map"></div>
 
     <!-- uber popup -->
     <div class="uber-pop">
@@ -87,8 +86,9 @@
   <script src="vendor/marked.js" type="text/javascript"></script>
   <script src="vendor/highlight.pack.js" type="text/javascript"></script>
   <script src="vendor/webdb.js" type="text/javascript"></script>
-
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAahQMqz5qcN3p3ERfaOUGKP17YBSJz1hA" type="text/javascript"></script>
   <!-- app scripts -->
+  <script src="scripts/model/googleDataMapping.js" type="text/javascript"></script>
   <script src="scripts/time-visualize.js" type="text/javascript"></script>
   <script src="scripts/controller/routes.js" type="text/javascript"></script>
   <script src="scripts/model/lyft-api.js" type="text/javascript"></script>
