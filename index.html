@@ -16,9 +16,10 @@
 <body>
   <main>
     <!-- hidden images to use later on canvas -->
-    <img id="bike-logo" src="assets/biketown-logo.png" style="display:none">
-    <img id="uber-logo" src="assets/uber-logo.png" style="display:none">
-    <img id="lyft-logo" src="assets/lyft-logo.png" style="display:none">
+    <img id="bike-logo" class="logo-aspect" src="assets/biketown-logo.png" style="display:none">
+    <img id="uber-logo" class="logo-aspect" src="assets/uber-logo.png" style="display:none">
+    <img id="lyft-logo" class="logo-aspect" src="assets/lyft-logo.png" style="display:none">
+
     <a href="/uber">Uber here</a>
     <a href="/lyft">lyft here</a>
 
@@ -56,7 +57,8 @@
       </div>
 
       <div id="eta-visualization">
-          <canvas id="eta-canvas" height="200px" width="550px"></canvas>
+          <!-- <canvas id="eta-canvas" height="400px" width="600px"></canvas> -->
+          <canvas id="eta-canvas"></canvas>
       </div>
 
 

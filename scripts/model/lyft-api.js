@@ -11,6 +11,7 @@
       return car.display_name === 'Lyft';
     });
     var eta = lyft[0].eta_seconds;
+    console.log('lyft eta from attachEta', eta);
     return eta;
   };
 
@@ -23,7 +24,7 @@
       success: function(data, textStatus, jqXHR) {
         lyftObject.dataAll = data;
         var eta = lyftObject.attachEta();
-        callback(context, eta, canvas.height / 2, 'lyft-logo', etaLogos);
+        callback(context, eta, canvas.clientHeight / 4, 'lyft-logo', etaLogos);
       },
       error: function(jqXHR, textStatus, errorThrown) {
         //console.log(jqXHR, textStatus, errorThrown);
