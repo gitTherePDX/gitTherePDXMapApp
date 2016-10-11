@@ -26,11 +26,11 @@ var Circle = function(x, y, radius) {
 };
 
 var drawCircle = function(context, x, y, fillcolor, radius, linewidth, strokestyle, fontcolor, textalign, fonttype, filltext, timeSpots) {
-  console.log('begin', timeSpots);
+  // console.log('begin', timeSpots);
   draw(context, x, y, fillcolor, radius, linewidth, strokestyle, fontcolor, textalign, fonttype, filltext);
   var timeSpot = new Circle(x, y, radius);
   timeSpots.push(timeSpot);
-  console.log('end', timeSpot, timeSpots);
+  // console.log('end', timeSpot, timeSpots);
 };
 
 drawCircle(context, 300, canvas.height / 2, 'blue', 40, 5, '#003300', 'white', 'center', 'bold 2rem Arial', 'B', timeSpots);
@@ -42,7 +42,7 @@ $('#eta-canvas').on('click', function(e){
 
   for (var i = 0; i < circles.length; i++) {
     if (clickedX < timeSpots[i].right && clickedX > timeSpots[i].left && clickedY > timeSpots[i].top && clickedY < timeSpots[i].bottom) {
-      console.log('clicked number', (i + 1));
+      // console.log('clicked number', (i + 1));
     }
   }
 });
