@@ -1,32 +1,37 @@
-var lyftObject = {};
+'use strict';
 
-lyftObject.eta = [];
+(function(module) {
 
-lyftObject.attachEta = function() {
-  var lyft = lyftObject.eta.filter(function(car){
-    return car.display_name === 'Lyft';
-  });
-  var eta = lyft[0].eta_seconds;
-  console.log('lyft eta ', eta);
-};
+  var lyftObject = {};
 
-lyftObject.callApi = function() {
-  var longitude = '-122.6765';
-  var latitude = '45.5231';
-  var ajaxQuery = {
-    url: 'data/lyft.json',
-    type: 'GET',
-    success: function(data, textStatus, jqXHR) {
-      lyftObject.eta = data;
-      // console.log(lyftObject.eta);
-      lyftObject.attachEta();
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-      //console.log(jqXHR, textStatus, errorThrown);
-    }
+  lyftObject.dataAll = [];
+
+  lyftObject.attachEta = function() {
+    var lyft = lyftObject.dataAll.filter(function(car){
+      return car.display_name === 'Lyft';
+    });
+    var eta = lyft[0].eta_seconds;
+    return eta;
   };
-  $.ajax(ajaxQuery);
-};
 
-lyftObject.callApi();
-// console.log(lyftObject.eta);
+  lyftObject.getInfo = function(callback) {
+    var longitude = '-122.6765';
+    var latitude = '45.5231';
+    var ajaxQuery = {
+      url: 'data/lyft.json',
+      type: 'GET',
+      success: function(data, textStatus, jqXHR) {
+        lyftObject.dataAll = data;
+        var eta = lyftObject.attachEta();
+        callback(context, eta, canvas.height / 2, 'lyft-logo', etaLogos);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        //console.log(jqXHR, textStatus, errorThrown);
+      }
+    };
+    $.ajax(ajaxQuery);
+  };
+
+  module.lyftObject = lyftObject;
+  lyftObject.getInfo(drawLogo);
+})(window);

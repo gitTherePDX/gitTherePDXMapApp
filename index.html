@@ -15,6 +15,10 @@
 </head>
 <body>
   <main>
+    <!-- hidden images to use later on canvas -->
+    <img id="bike-logo" src="assets/biketown-logo.png" style="display:none">
+    <img id="uber-logo" src="assets/uber-logo.png" style="display:none">
+    <img id="lyft-logo" src="assets/lyft-logo.png" style="display:none">
     <a href="/uber">Uber here</a>
     <a href="/lyft">lyft here</a>
 
@@ -34,7 +38,7 @@
         <div id="transit-options">
           <span>Transit Options</span><br>
           <input name="Biketown" type="checkbox" value="Biketown"> Biketown
-          <input name="Lyft" type="checkbox" value="Biketown"> Lyft
+          <input name="Lyft" type="checkbox" value="Lyft"> Lyft
           <input name="Uber" type="checkbox" value="Uber"> Uber </div>
         <div id="search">
           <input class="button" id="submit" type="submit" value="submit">
@@ -46,13 +50,13 @@
     <div id="results">
       <div id="wait-time">
         <span>Max Wait/Walk Time</span><br>
-        <input name="five-min" type="radio"> 5 min
-        <input name="seven-min" type="radio"> 7 min
-        <input name="fifteen-min" type="radio"> 15 min
+          <input name="max-time" type="radio"> 5 min
+          <input name="max-time" type="radio" checked="true"> 7 min
+          <input name="max-time" type="radio"> 15 min
       </div>
 
       <div id="eta-visualization">
-          <canvas id="eta-canvas" height="12rem" width="75%"></canvas>
+          <canvas id="eta-canvas" height="200px" width="550px"></canvas>
       </div>
 
 
@@ -66,7 +70,8 @@
     </div>
 
     <!-- map is now a pop-up if user picks biketown -->
-    <div class="bike-map"></div>
+    <div class="bike-map">
+    </div>
 
     <!-- uber popup -->
     <div class="uber-pop">
@@ -87,9 +92,10 @@
   <script src="vendor/highlight.pack.js" type="text/javascript"></script>
   <script src="vendor/webdb.js" type="text/javascript"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAahQMqz5qcN3p3ERfaOUGKP17YBSJz1hA" type="text/javascript"></script>
+
   <!-- app scripts -->
   <script src="scripts/model/googleDataMapping.js" type="text/javascript"></script>
-  <script src="scripts/time-visualize.js" type="text/javascript"></script>
+  <script src="scripts/views/time-visualize.js" type="text/javascript"></script>
   <script src="scripts/controller/routes.js" type="text/javascript"></script>
   <script src="scripts/model/lyft-api.js" type="text/javascript"></script>
   <script src="scripts/model/uber-api.js" type="text/javascript"></script>
