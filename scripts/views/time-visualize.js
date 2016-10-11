@@ -37,7 +37,7 @@ $('#eta-canvas').on('click', function(e){
 
   for (var i = 0; i < etaDots.length; i++) {
     if (clickedX < etaDots[i].right && clickedX > etaDots[i].left && clickedY > etaDots[i].top && clickedY < etaDots[i].bottom) {
-      // console.log('clicked number', (i + 1));
+      console.log('clicked dot', etaDots[i]);
     }
   }
 });
