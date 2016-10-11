@@ -25,7 +25,7 @@
         //uberObject.dataAll = data.times;
         uberObject.dataAll = data;
         var eta = uberObject.attachEta();
-        callback(context, eta , canvas.height / 4, 'blue', 20, 2, 'white', 'white', 'center', 'bold 1rem Arial', 'U', etaDots);
+        callback(context, eta, canvas.height / 8, 'uber-logo', etaLogos);
       },
       error: function(jqXHR, textStatus, errorThrown) {
         // console.log('What happened?');
@@ -36,5 +36,5 @@
   };
 
   module.uberObject = uberObject;
-  uberObject.getInfo(drawCircle);
+  uberObject.getInfo(drawLogo);
 })(window);
