@@ -57,6 +57,10 @@ h1 {
   margin: 0.1rem;
 }
 
+#eta-canvas {
+  border: 1px solid black;
+}
+
 /*try to center using margin: 0 auto*/
 /*probs: check that containers have a width*/
 

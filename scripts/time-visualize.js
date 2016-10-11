@@ -1,6 +1,6 @@
 var canvas = document.getElementById('eta-canvas');
 var context = canvas.getContext('2d');
-var timeSpots = [];
+var etaDots = [];
 
 var draw = function(context, x, y, fillcolor, radius, linewidth, strokestyle, fontcolor, textalign, fonttype, filltext) {
   context.beginPath();
@@ -25,23 +25,18 @@ var Circle = function(x, y, radius) {
   this.bottom = y + radius;
 };
 
-var drawCircle = function(context, x, y, fillcolor, radius, linewidth, strokestyle, fontcolor, textalign, fonttype, filltext, timeSpots) {
-  // console.log('begin', timeSpots);
+var drawCircle = function(context, x, y, fillcolor, radius, linewidth, strokestyle, fontcolor, textalign, fonttype, filltext, etaDots, getInfo) {
   draw(context, x, y, fillcolor, radius, linewidth, strokestyle, fontcolor, textalign, fonttype, filltext);
-  var timeSpot = new Circle(x, y, radius);
-  timeSpots.push(timeSpot);
-  // console.log('end', timeSpot, timeSpots);
+  var etaDot = new Circle(x, y, radius);
+  etaDots.push(etaDot);
 };
-
-drawCircle(context, 300, canvas.height / 2, 'blue', 40, 5, '#003300', 'white', 'center', 'bold 2rem Arial', 'B', timeSpots);
-
 
 $('#eta-canvas').on('click', function(e){
   var clickedX = e.pageX - this.offsetLeft;
   var clickedY = e.pageY - this.offsetTop;
 
-  for (var i = 0; i < circles.length; i++) {
-    if (clickedX < timeSpots[i].right && clickedX > timeSpots[i].left && clickedY > timeSpots[i].top && clickedY < timeSpots[i].bottom) {
+  for (var i = 0; i < etaDots.length; i++) {
+    if (clickedX < etaDots[i].right && clickedX > etaDots[i].left && clickedY > etaDots[i].top && clickedY < etaDots[i].bottom) {
       // console.log('clicked number', (i + 1));
     }
   }

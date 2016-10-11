@@ -11,10 +11,10 @@
       return car.display_name === 'uberX';
     });
     var eta = uberX[0].estimate;
-    console.log('uber eta ', eta);
+    return eta;
   };
 
-  uberObject.getInfo = function() {
+  uberObject.getInfo = function(callback) {
     var longitude = '-122.6765';
     var latitude = '45.5231';
     var ajaxQuery = {
@@ -24,10 +24,8 @@
       success: function(data, textStatus, jqXHR) {
         //uberObject.dataAll = data.times;
         uberObject.dataAll = data;
-        // console.log(data);
-        // console.log(textStatus);
-        // console.log(jqXHR);
-        uberObject.attachEta();
+        var eta = uberObject.attachEta();
+        callback(context, eta , canvas.height / 4, 'blue', 20, 2, 'white', 'white', 'center', 'bold 1rem Arial', 'U', etaDots);
       },
       error: function(jqXHR, textStatus, errorThrown) {
         // console.log('What happened?');
@@ -38,5 +36,5 @@
   };
 
   module.uberObject = uberObject;
-  uberObject.getInfo();
+  uberObject.getInfo(drawCircle);
 })(window);
