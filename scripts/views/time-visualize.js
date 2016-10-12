@@ -41,5 +41,19 @@
     etaObject.context.fillRect(0,0,etaObject.canvas.clientWidth,etaObject.canvas.clientHeight);
   };
 
+  etaObject.etaTransform = function(eta) {
+    var zoom;
+    if (filterData.zoom === '18') {
+      zoom = 300;
+    }else if (filterData.zoom === '17') {
+      zoom = 420;
+    }else if (filterData.zoom === '16') {
+      zoom = 800;
+    }
+
+    var etaTransform = eta / zoom * etaObject.canvas.clientWidth;
+    return etaTransform;
+  };
+
   module.etaObject = etaObject;
 })(window);
