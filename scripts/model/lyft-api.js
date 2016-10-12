@@ -2,7 +2,7 @@
 
 (function(module) {
 
-  var lyftObjectApi = {};
+  var lyftObject = {};
 
   lyftObject.dataAll = [];
 

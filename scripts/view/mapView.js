@@ -5,24 +5,26 @@
 
   mapViews.allMarkers = [];
 
-  mapViews.createMarkers = function(firstcallback, secondcallback) {
+  mapViews.createMarkers = function() {
     //will use this array temporarily until we get more data;
     googleMapping.locationsAddressesLatLng.forEach(function(object) {
       mapViews.allMarkers.push(new google.maps.Marker({
         position: object,
       }));
     });
-    firstcallback(googleMapping.getCurrentLocation, secondcallback);
+    //firstcallback(googleMapping.getCurrentLocation, secondcallback);
   };
 
   mapViews.setCurrentLocation = function() {
-    
+
   };
 
   mapViews.changeZoom = function () {
     $('#wait-time').on('change', 'input[type="radio"]', function() {
       var zoom = parseInt($(this).val());
       googleMapping.map.setZoom(zoom);
+      //keeps track of the current zoom
+      filterData.zoom = zoom;
     });
   };
 
@@ -41,7 +43,13 @@
     mapViews.allMarkers = [];
   };
 
+  mapViews.initializePage = function(callback) {
+    mapViews.changeZoom();
+    //might want to make this function a callback of createMarkers
+    mapViews.createMarkers();
+    callback();
+  };
+
   module.mapViews = mapViews;
-  mapViews.createMarkers(googleMapping.initMap, mapViews.setMapOnAll);
-  mapViews.changeZoom();
+  mapViews.initializePage(googleMapping.initMap);
 })(window);

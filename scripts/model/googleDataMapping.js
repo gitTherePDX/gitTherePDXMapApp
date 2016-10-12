@@ -27,7 +27,7 @@
     {lat:45.5122046,lng:-122.65358530000003}
   ];
 
-  googleMapping.getCurrentLocation = function(firstFunction, secondFunction) {
+  googleMapping.getCurrentLocation = function(callbackFunction) {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         googleMapping.currentLocation = {
@@ -36,21 +36,21 @@
         };
         //uberObject.updateInfo(googleMapping.currentLocation);
         //lyftObject.updateInfo(googleMapping.currentLocation);
-        googleMapping.map = firstFunction(13, googleMapping.currentLocation);
-        secondFunction(googleMapping.map);
+        googleMapping.map = googleMapping.createMap(filterData.zoom, googleMapping.currentLocation);
+        callbackFunction(googleMapping.map);
       }, function() {
         googleMapping.handleLocationError(true, mapViews.map, mapViews.map.getCenter());
       });
     } else {
       //Browser doesn't support Geolocation :(
       googleMapping.currentLocation = {lat: 45.5231, lng: -122.6765};
-      googleMapping.map = firstFunction(13, googleMapping.currentLocation);
-      secondFunction(googleMapping.map);
+      googleMapping.map = googleMapping.createMap(filterData.zoom, googleMapping.currentLocation);
+      callbackFunction(googleMapping.map);
       handleLocationError(false, mapViews.map, mapViews.map.getCenter());
     };
   };
 
-  googleMapping.getUpdatedLocation = function(firstFunction,secondFunction,selectionObject) {
+  googleMapping.getUpdatedLocation = function(callbackFunction, selectionObject) {
     $('.bike-map').empty();
     if (0 < selectionObject.address.length) {
       new google.maps.Geocoder()
@@ -62,13 +62,13 @@
         //update with current location
         //uberObject.updateInfo(googleMapping.currentLocation);
         //lyftObject.updateInfo(googleMapping.currentLocation);
-        googleMapping.map = googleMapping.createMap(13, googleMapping.currentLocation);
-        secondFunction(googleMapping.map);
+        googleMapping.map = googleMapping.createMap(selectionObject.zoom, googleMapping.currentLocation);
+        callbackFunction(googleMapping.map);
       });
     } else {
       //update with current location
-      googleMapping.map = firstFunction(googleMapping.createMap, mapViews.setMapOnAll);
-      secondFunction(googleMapping.map);
+      googleMapping.map = googleMapping.createMap(selectionObject.zoom, googleMapping.currentLocation);
+      callbackFunction(googleMapping.map);
     };
   };
 
@@ -101,8 +101,9 @@
     return map;
   };
 
-  googleMapping.initMap = function(firstFunction, secondFunction) {
-    firstFunction(googleMapping.createMap, secondFunction);
+  googleMapping.initMap = function() {
+    googleMapping.getCurrentLocation(mapViews.setMapOnAll);
+    //firstFunction(, secondFunction);
   };
 
   module.googleMapping = googleMapping;
