@@ -12,4 +12,5 @@ $('form').on('submit', function(event){
     uberObject.getInfo(drawLogo);
   }
   //if (filterData.Biketown) biketownObject.getInfo(drawLogo);
+  
 });

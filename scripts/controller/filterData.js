@@ -20,6 +20,7 @@ filterData.getTransportationOption = function() {
     });
     console.log($('#address').val());
     filterData.address = $('#address').val();
+    filterData.zoom = $('#searchable').find('input[type="radio"]:checked').val();
     googleMapping.getUpdatedLocation(googleMapping.getCurrentLocation,mapViews.setMapOnAll,filterData);
   });
 };
@@ -32,11 +33,10 @@ filterData.getTransportationOption = function() {
 
 filterData.getZoom = function() {
   $('form').on('submit', function(event){
-    event.preventDefault();
-    filterData.zoom = $('#searchable').find('input[type="radio"]:checked').val();
+
   });
 };
 
 filterData.getAddress();*/
 filterData.getTransportationOption();
-filterData.getZoom();
+//filterData.getZoom();
