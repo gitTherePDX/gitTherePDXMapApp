@@ -2,37 +2,28 @@
 
 (function(module) {
 
-  var lyftObject = {};
+  var lyftApi = {};
 
-  lyftObject.dataAll = [];
+  lyftApi.eta = [];
 
-  lyftObject.attachEta = function() {
-    var lyft = lyftObject.dataAll.filter(function(car){
-      return car.display_name === 'Lyft';
-    });
-    var eta = lyft[0].eta_seconds;
-    console.log('lyft eta from attachEta', eta);
-    return eta;
-  };
-
-  lyftObject.getInfo = function(callback) {
+  lyftApi.callApi = function() {
     var longitude = '-122.6765';
     var latitude = '45.5231';
     var ajaxQuery = {
       url: 'data/lyft.json',
       type: 'GET',
       success: function(data, textStatus, jqXHR) {
-        lyftObject.dataAll = data;
-        var eta = lyftObject.attachEta();
-        callback(context, eta, canvas.clientHeight / 4, 'lyft-logo', etaLogos);
+        lyftApi.eta = data;
+        console.log(lyftApi.eta);
       },
       error: function(jqXHR, textStatus, errorThrown) {
-        //console.log(jqXHR, textStatus, errorThrown);
+        console.log(jqXHR, textStatus, errorThrown);
       }
     };
     $.ajax(ajaxQuery);
   };
 
-  module.lyftObject = lyftObject;
-  lyftObject.getInfo(drawLogo);
+  module.lyftApi = lyftApi;
+  lyftApi.callApi();
+  console.log(lyftApi.eta);
 })(window);
