@@ -16,7 +16,7 @@
   };
 
   mapViews.setCurrentLocation = function() {
-
+    
   };
 
   mapViews.changeZoom = function () {
