@@ -43,11 +43,11 @@
 
   etaObject.etaTransform = function(eta) {
     var zoom;
-    if (filterData.zoom === '18') {
+    if (filterData.zoom === 18) {
       zoom = 300;
-    }else if (filterData.zoom === '17') {
+    }else if (filterData.zoom === 17) {
       zoom = 420;
-    }else if (filterData.zoom === '16') {
+    }else if (filterData.zoom === 16) {
       zoom = 800;
     }
 
