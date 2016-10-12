@@ -25,8 +25,8 @@
 
     var etaLogo = new etaObject.Logo(x, y);
     etaObject.etaLogos.push(etaLogo);
-    console.log(etaLogo);
-    console.log('clientwidth=', etaObject.canvas.clientWidth, 'clientheight=', etaObject.canvas.clientHeight);
+    //console.log(etaLogo);
+    //console.log('clientwidth=', etaObject.canvas.clientWidth, 'clientheight=', etaObject.canvas.clientHeight);
   };
 
   etaObject.buildCanvas = function() {

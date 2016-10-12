@@ -43,13 +43,12 @@
     mapViews.allMarkers = [];
   };
 
-  mapViews.initializePage = function(callback) {
+  mapViews.initializePage = function() {
     mapViews.changeZoom();
     //might want to make this function a callback of createMarkers
     mapViews.createMarkers();
-    callback();
   };
 
   module.mapViews = mapViews;
-  mapViews.initializePage(googleMapping.initMap);
+  mapViews.initializePage();
 })(window);

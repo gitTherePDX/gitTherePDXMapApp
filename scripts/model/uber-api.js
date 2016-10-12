@@ -15,12 +15,12 @@
     return eta;
   };
 
-  uberObject.getInfo = function(callback) {
-    var longitude = '-122.6765';
-    var latitude = '45.5231';
+  uberObject.getInfo = function(callback, selectionObject) {
+    var longitude = selectionObject.lng;
+    var latitude = selectionObject.lat;
     var ajaxQuery = {
-      //url: 'http://localhost:3000/uber/' + latitude + '/' + longitude,
-      url: 'data/uber.json',
+      url: 'http://localhost:3000/uber/' + latitude + '/' + longitude,
+      //url: 'data/uber.json',
       type: 'GET',
       success: function(data, textStatus, jqXHR) {
         //uberObject.dataAll = data.times;

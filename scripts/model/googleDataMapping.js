@@ -27,31 +27,32 @@
     {lat:45.5122046,lng:-122.65358530000003}
   ];
 
-  googleMapping.getCurrentLocation = function(callbackFunction) {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        googleMapping.currentLocation = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-        //uberObject.updateInfo(googleMapping.currentLocation);
-        //lyftObject.updateInfo(googleMapping.currentLocation);
-        googleMapping.map = googleMapping.createMap(filterData.zoom, googleMapping.currentLocation);
-        callbackFunction(googleMapping.map);
-      }, function() {
-        googleMapping.handleLocationError(true, mapViews.map, mapViews.map.getCenter());
-      });
-    } else {
-      //Browser doesn't support Geolocation :(
-      googleMapping.currentLocation = {lat: 45.5231, lng: -122.6765};
-      googleMapping.map = googleMapping.createMap(filterData.zoom, googleMapping.currentLocation);
-      callbackFunction(googleMapping.map);
-      handleLocationError(false, mapViews.map, mapViews.map.getCenter());
-    };
-  };
+  // googleMapping.getCurrentLocation = function(callbackFunction) {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(function(position) {
+  //       googleMapping.currentLocation = {
+  //         lat: position.coords.latitude,
+  //         lng: position.coords.longitude
+  //       };
+  //       //uberObject.updateInfo(googleMapping.currentLocation);
+  //       //lyftObject.updateInfo(googleMapping.currentLocation);
+  //       googleMapping.map = googleMapping.createMap(filterData.zoom, googleMapping.currentLocation);
+  //       callbackFunction(googleMapping.map);
+  //     }, function() {
+  //       googleMapping.handleLocationError(true, mapViews.map, mapViews.map.getCenter());
+  //     });
+  //   } else {
+  //     //Browser doesn't support Geolocation :(
+  //     googleMapping.currentLocation = {lat: 45.5231, lng: -122.6765};
+  //     googleMapping.map = googleMapping.createMap(filterData.zoom, googleMapping.currentLocation);
+  //     callbackFunction(googleMapping.map);
+  //     handleLocationError(false, mapViews.map, mapViews.map.getCenter());
+  //   };
+  // };
 
   googleMapping.getUpdatedLocation = function(callbackFunction, selectionObject) {
     $('.bike-map').empty();
+    etaObject.buildCanvas();
     if (0 < selectionObject.address.length) {
       new google.maps.Geocoder()
       .geocode({address: selectionObject.address}, function(results) {
@@ -59,16 +60,42 @@
           lat: results[0].geometry.location.lat(),
           lng: results[0].geometry.location.lng()
         };
+        if (filterData.Uber) {
+          uberObject.getInfo(etaObject.drawLogo, googleMapping.currentLocation);
+        }
         //update with current location
         //uberObject.updateInfo(googleMapping.currentLocation);
         //lyftObject.updateInfo(googleMapping.currentLocation);
         googleMapping.map = googleMapping.createMap(selectionObject.zoom, googleMapping.currentLocation);
         callbackFunction(googleMapping.map);
       });
+    } else if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        googleMapping.currentLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        if (filterData.Uber) {
+          uberObject.getInfo(etaObject.drawLogo, googleMapping.currentLocation);
+        }
+            //uberObject.updateInfo(googleMapping.currentLocation);
+            //lyftObject.updateInfo(googleMapping.currentLocation);
+        googleMapping.map = googleMapping.createMap(filterData.zoom, googleMapping.currentLocation);
+        callbackFunction(googleMapping.map);
+      }, function() {
+        googleMapping.handleLocationError(true, mapViews.map, mapViews.map.getCenter());
+      });
+
+
     } else {
       //update with current location
-      googleMapping.map = googleMapping.createMap(selectionObject.zoom, googleMapping.currentLocation);
+      googleMapping.currentLocation = {lat: 45.5231, lng: -122.6765};
+      if (filterData.Uber) {
+        uberObject.getInfo(etaObject.drawLogo, googleMapping.currentLocation);
+      }
+      googleMapping.map = googleMapping.createMap(filterData.zoom, googleMapping.currentLocation);
       callbackFunction(googleMapping.map);
+      handleLocationError(false, mapViews.map, mapViews.map.getCenter());
     };
   };
 
@@ -101,10 +128,10 @@
     return map;
   };
 
-  googleMapping.initMap = function() {
-    googleMapping.getCurrentLocation(mapViews.setMapOnAll);
-    //firstFunction(, secondFunction);
-  };
+  // googleMapping.initMap = function() {
+  //   googleMapping.getCurrentLocation(mapViews.setMapOnAll);
+  //   //firstFunction(, secondFunction);
+  // };
 
   module.googleMapping = googleMapping;
 })(window);
