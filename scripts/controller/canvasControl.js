@@ -26,4 +26,6 @@ $('#eta-canvas').on('click', function(e){
       console.log('clicked logo', etaLogos[i]);
     }
   }
+
+  //if (filterData.Biketown) biketownObject.getInfo(drawLogo);
 });
