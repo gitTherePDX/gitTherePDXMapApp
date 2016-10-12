@@ -1,34 +1,45 @@
-var canvas = document.getElementById('eta-canvas');
-var context = canvas.getContext('2d');
-var etaLogos = [];
+'use strict';
 
-var Logo = function(x, y) {
-  this.left = x;
-  this.top = y;
-  this.right = x + canvas.clientWidth/20;
-  this.bottom = y + canvas.clientHeight/5;
-  console.log('topleft', this.left, this.top, 'topright', this.right, this.top, 'bottomleft', this.left, this.bottom, 'bottomright', this.right, this.bottom);
-};
+(function(module) {
 
-var drawLogo = function(context, x, y, imgId) {
-  var img = document.getElementById(imgId);
-  context.drawImage(img,x,y,canvas.clientWidth/20,canvas.clientHeight/5); //add a width and height based on canvas.size/window.size
+  var etaObject = {};
 
-  var etaLogo = new Logo(x, y);
-  etaLogos.push(etaLogo);
-  console.log(etaLogo);
-  console.log('clientwidth=', canvas.clientWidth, 'clientheight=', canvas.clientHeight);
-};
+  etaObject.canvas = document.getElementById('eta-canvas');
+  etaObject.canvas.width = etaObject.canvas.clientWidth;
+  etaObject.canvas.height = etaObject.canvas.clientHeight;
+  etaObject.context = etaObject.canvas.getContext('2d');
 
-$('#eta-canvas').on('click', function(e){
-  var clickedX = e.pageX - this.offsetLeft;
-  var clickedY = e.pageY - this.offsetTop;
-  console.log(clickedX + ', ' + clickedY);
-  for (var i = 0; i < etaLogos.length; i++) {
-    if (clickedX < etaLogos[i].right && clickedX > etaLogos[i].left
-        &&
-        clickedY > etaLogos[i].top && clickedY < etaLogos[i].bottom) {
-      console.log('clicked logo', etaLogos[i]);
-    }
-  }
-});
+  etaObject.etaLogos = [];
+
+  etaObject.Logo = function(x, y) {
+    this.left = x;
+    this.top = y;
+    this.right = x + etaObject.canvas.clientWidth;
+    this.bottom = y + etaObject.canvas.clientHeight;
+  };
+
+  etaObject.drawLogo = function(context, x, y, imgId) {
+    var img = document.getElementById(imgId);
+    //draw the logo
+    context.drawImage(img,x,y);
+
+    var etaLogo = new etaObject.Logo(x, y);
+    etaObject.etaLogos.push(etaLogo);
+    console.log(etaLogo);
+    console.log('clientwidth=', etaObject.canvas.clientWidth, 'clientheight=', etaObject.canvas.clientHeight);
+  };
+
+  etaObject.buildCanvas = function() {
+  //clear canvas on update
+    etaObject.context.clearRect(0, 0, etaObject.canvas.width, etaObject.canvas.height);
+    //gradient for style on update
+    var grd=etaObject.context.createLinearGradient(0,0,etaObject.canvas.clientWidth,0);
+    grd.addColorStop(0,'white');
+    grd.addColorStop(1,'black');
+
+    etaObject.context.fillStyle=grd;
+    etaObject.context.fillRect(0,0,etaObject.canvas.clientWidth,etaObject.canvas.clientHeight);
+  };
+
+  module.etaObject = etaObject;
+})(window);

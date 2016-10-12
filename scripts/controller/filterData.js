@@ -24,12 +24,6 @@ filterData.getTransportationOption = function() {
   });
 };
 
-/*filterData.getAddress = function() {
-  $('form').submit(function(event){
-    event.preventDefault();
-  });
-};
-
 filterData.getZoom = function() {
   $('form').on('submit', function(event){
     event.preventDefault();
@@ -37,6 +31,5 @@ filterData.getZoom = function() {
   });
 };
 
-filterData.getAddress();*/
 filterData.getTransportationOption();
 filterData.getZoom();

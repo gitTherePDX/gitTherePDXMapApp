@@ -24,9 +24,20 @@
       type: 'GET',
       success: function(data, textStatus, jqXHR) {
         //uberObject.dataAll = data.times;
+        var zoom;
         uberObject.dataAll = data;
         var eta = uberObject.attachEta();
-        callback(context, eta, canvas.clientHeight / 12, 'uber-logo', etaLogos);
+
+        if (filterData.zoom === '18') {
+          zoom = 300;
+        }else if (filterData.zoom === '17') {
+          zoom = 420;
+        }else if (filterData.zoom === '16') {
+          zoom = 800;
+        }
+
+        var etaTransform = eta / zoom * etaObject.canvas.clientWidth;
+        callback(etaObject.context, etaTransform, etaObject.canvas.clientHeight/10, 'uber-logo', etaObject.etaLogos);
       },
       error: function(jqXHR, textStatus, errorThrown) {
         // console.log('What happened?');
@@ -37,5 +48,5 @@
   };
 
   module.uberObject = uberObject;
-  uberObject.getInfo(drawLogo);
+  //uberObject.getInfo(etaObject.drawLogo);
 })(window);
