@@ -22,9 +22,22 @@
       url: 'data/lyft.json',
       type: 'GET',
       success: function(data, textStatus, jqXHR) {
+        console.log('yay!!!!');
+        var zoom;
         lyftObject.dataAll = data;
         var eta = lyftObject.attachEta();
-        callback(context, eta, canvas.clientHeight / 4, 'lyft-logo', etaLogos);
+
+        if (filterData.zoom === '18') {
+          zoom = 300;
+        }else if (filterData.zoom === '17') {
+          zoom = 420;
+        }else if (filterData.zoom === '16') {
+          zoom = 800;
+        }
+
+        var etaTransform = eta / zoom * etaObject.canvas.clientWidth;
+        console.log('eta = ', eta, 'zoom = ', zoom, 'transformed = ', etaTransform);
+        callback(etaObject.context, etaTransform, etaObject.canvas.clientHeight / 6, 'lyft-logo', etaObject.etaLogos);
       },
       error: function(jqXHR, textStatus, errorThrown) {
         //console.log(jqXHR, textStatus, errorThrown);
@@ -34,5 +47,5 @@
   };
 
   module.lyftObject = lyftObject;
-  lyftObject.getInfo(drawLogo);
+  //lyftObject.getInfo(drawLogo);
 })(window);
