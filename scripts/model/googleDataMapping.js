@@ -63,6 +63,9 @@
         if (filterData.Uber) {
           uberObject.getInfo(etaObject.drawLogo, googleMapping.currentLocation);
         }
+        if (filterData.Lyft) {
+          lyftObject.getInfo(etaObject.drawLogo,googleMapping.currentLocation);
+        }
         //update with current location
         //uberObject.updateInfo(googleMapping.currentLocation);
         //lyftObject.updateInfo(googleMapping.currentLocation);
@@ -78,6 +81,9 @@
         if (filterData.Uber) {
           uberObject.getInfo(etaObject.drawLogo, googleMapping.currentLocation);
         }
+        if (filterData.Lyft) {
+          lyftObject.getInfo(etaObject.drawLogo,googleMapping.currentLocation);
+        }
             //uberObject.updateInfo(googleMapping.currentLocation);
             //lyftObject.updateInfo(googleMapping.currentLocation);
         googleMapping.map = googleMapping.createMap(filterData.zoom, googleMapping.currentLocation);
@@ -92,6 +98,9 @@
       googleMapping.currentLocation = {lat: 45.5231, lng: -122.6765};
       if (filterData.Uber) {
         uberObject.getInfo(etaObject.drawLogo, googleMapping.currentLocation);
+      }
+      if (filterData.Lyft) {
+        lyftObject.getInfo(etaObject.drawLogo,googleMapping.currentLocation);
       }
       googleMapping.map = googleMapping.createMap(filterData.zoom, googleMapping.currentLocation);
       callbackFunction(googleMapping.map);
