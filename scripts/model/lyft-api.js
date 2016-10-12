@@ -15,27 +15,40 @@
     return eta;
   };
 
-  lyftObject.callApi = function(callback) {
-    //var longitude = '-122.6765';
-    //var latitude = '45.5231';
+  lyftObject.getInfo = function(callback, selectionObject) {
+    var longitude = selectionObject.lng;
+    var latitude = selectionObject.lat;
     var ajaxQuery = {
-      //url: 'data/lyft.json',
+      url: 'http://localhost:3000/lyft/' + latitude + '/' + longitude,
       type: 'GET',
       success: function(data, textStatus, jqXHR) {
-
-        console.log('yay!!!!');
         lyftObject.dataAll = data;
         var eta = lyftObject.attachEta();
-
+        console.log('get info worked');
         var etaTransform = etaObject.etaTransform(eta);
 
         callback(etaObject.context, etaTransform, etaObject.canvas.clientHeight / 6, 'lyft-logo', etaObject.etaLogos);
       },
       error: function(jqXHR, textStatus, errorThrown) {
         console.log(jqXHR, textStatus, errorThrown);
+        if (jqXHR.status === 401) {
+          lyftObject.getToken();
+          console.log('running get token');
+        }
       }
     };
     $.ajax(ajaxQuery);
+  };
+
+  lyftObject.getToken = function() {
+    $.ajax({
+      url: 'http://localhost:3000/tokenlyft/',
+      type: 'POST',
+      success: function(data,textStatus, jqXHR) {
+        lyftObject.getInfo(etaObject.drawLogo,googleMapping.currentLocation);
+        console.log(data.token_type);
+      }
+    });
   };
 
   module.lyftObject = lyftObject;
