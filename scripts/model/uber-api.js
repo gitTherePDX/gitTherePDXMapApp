@@ -7,7 +7,7 @@
   uberObject.dataAll = [];
 
   uberObject.attachEta = function() {
-    var uberX = uberObject.dataAll.filter(function(car){
+    var uberX = uberObject.dataAll.times.filter(function(car){
       return car.display_name === 'uberX';
     });
     var eta = uberX[0].estimate;
