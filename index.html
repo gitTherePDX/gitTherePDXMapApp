@@ -23,69 +23,45 @@
     <a href="/uber">Uber here</a>
     <a href="/lyft">lyft here</a>
 
-    <header class="title-bar clearfix">
-      <section class="heading-group-h1">
-        <div id="logo"><!-- some svg animation?, some module animation --></div>
-        <h1>gitTherePDX</h1>
-      </section>
-      <nav class="main-nav">
-        <!-- Hamburger Menu -->
-        <div class="icon-menu"></div>
-        <ul>
-          <li class="tab" data-content="articles"><a href="#" class="icon-home"> Home</a></li>
-          <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div id="title-bar">
+      <!-- make these line up horizontal inline-block? -->
+      <div id="logo"><!-- some svg animation?, some module animation --></div>
+      <h1>gitTherePDX.com</h1>
+      <div id="hamburger"></div>
+    </div>
 
     <div id="searchable">
       <form action="">
-        <div id="location" class="corner-curve">
-          <label>Location </label><input class="corner-curve" id="address" name="Location" style="width: 75%" placeholder="Enter address or closest intersection">
+        <div id="location">
+          <label>Location </label><input id="address" name="Location" style="width: 75%" placeholder="Enter address or closest intersection">
         </div>
 
-<!-- <div>
-  <input id="option" type="checkbox" name="field" value="option">
-  <label for="option"><span><span></span></span>Value</label>
-</div> -->
-
-        <div id="transit-options" class="corner-curve">
+        <div id="transit-options">
           <span>Transit Options</span><br>
-          <input id="biketown-check" name="Biketown" type="checkbox" value="Biketown">
-          <label for="biketown-check"><span></span>Biketown</label>
-
-          <input id="lyft-check" name="Lyft" type="checkbox" value="Lyft">
-          <label for="lyft-check"><span></span>Lyft</label>
-
-          <input id="uber-check" name="Uber" type="checkbox" value="Uber">
-          <label for="uber-check"><span></span>Uber</label>
-        </div>
+          <input name="Biketown" type="checkbox" value="Biketown"> Biketown
+          <input name="Lyft" type="checkbox" value="Lyft"> Lyft
+          <input name="Uber" type="checkbox" value="Uber"> Uber </div>
         <div id="search">
           <input class="button" id="submit" type="submit" value="submit">
         </div>
       </form>
 
-      <div id="wait-time" class="corner-curve">
+      <div id="wait-time">
         <span>Max Wait/Walk Time</span><br>
-          <input id="max-5" name="max-time" type="radio" value="18">
-          <label for="max-5"><span><span></span></span>5 min</label>
-
-          <input id="max-7" name="max-time" type="radio" value="17" checked="true">
-          <label for="max-7"><span><span></span></span>7 min</label>
-
-          <input id="max-15" name="max-time" type="radio" value="16">
-          <label for="max-15"><span><span></span></span>15 min</label>
+          <input name="max-time" type="radio" value="18"> 5 min
+          <input name="max-time" type="radio" value="17" checked="true"> 7 min
+          <input name="max-time" type="radio" value="16"> 15 min
       </div>
     </div>
 
 
-    <div id="results" class="corner-curve">
-      <div id="eta-visualization" class="corner-curve">
+    <div id="results">
+      <div id="eta-visualization">
           <!-- <canvas id="eta-canvas" height="400px" width="600px"></canvas> -->
 
           <!-- programmatically find method to re-size the canvas with new width and height if that doesn't work then find method to create the dom in javascript then attach the canvas to the dom -->
 
-          <canvas id="eta-canvas" class="corner-curve"></canvas>
+          <canvas id="eta-canvas"></canvas>
       </div>
     </div>
 

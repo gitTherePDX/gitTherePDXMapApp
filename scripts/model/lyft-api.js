@@ -16,10 +16,10 @@
   };
 
   lyftObject.callApi = function(callback) {
-    var longitude = '-122.6765';
-    var latitude = '45.5231';
+    //var longitude = '-122.6765';
+    //var latitude = '45.5231';
     var ajaxQuery = {
-      url: 'data/lyft.json',
+      //url: 'data/lyft.json',
       type: 'GET',
       success: function(data, textStatus, jqXHR) {
 
