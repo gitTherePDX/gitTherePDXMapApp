@@ -19,6 +19,13 @@
     
   };
 
+  mapViews.changeZoom = function () {
+    $('#wait-time').on('change', 'input[type="radio"]', function() {
+      var zoom = parseInt($(this).val());
+      googleMapping.map.setZoom(zoom);
+    });
+  };
+
   mapViews.setMapOnAll = function(map) {
     mapViews.allMarkers.forEach(function(object) {
       object.setMap(map);
@@ -36,4 +43,5 @@
 
   module.mapViews = mapViews;
   mapViews.createMarkers(googleMapping.initMap, mapViews.setMapOnAll);
+  mapViews.changeZoom();
 })(window);

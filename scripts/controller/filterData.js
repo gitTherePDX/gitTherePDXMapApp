@@ -2,8 +2,8 @@ var filterData = {
   address: '',
   Biketown: false,
   Lyft: false,
-  Uber: false
-
+  Uber: false,
+  zoom: 17
 };
 
 filterData.getTransportationOption = function() {
@@ -20,14 +20,16 @@ filterData.getTransportationOption = function() {
     });
     console.log($('#address').val());
     filterData.address = $('#address').val();
+    filterData.zoom = $('#searchable').find('input[type="radio"]:checked').val();
     googleMapping.getUpdatedLocation(googleMapping.getCurrentLocation,mapViews.setMapOnAll,filterData);
   });
 };
 
-/*filterData.getAddress = function() {
-  $('form').submit(function(event){
-    event.preventDefault();
+filterData.getZoom = function() {
+  $('form').on('submit', function(event){
+
   });
 };
-filterData.getAddress();*/
+
 filterData.getTransportationOption();
+//filterData.getZoom();
