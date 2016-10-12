@@ -6,7 +6,7 @@ $('form').on('submit', function(event){
   etaObject.buildCanvas();
 
   if (filterData.Lyft){
-    lyftObject.getInfo(etaObject.drawLogo);
+    lyftObject.callApi(etaObject.drawLogo);
   }
 
   if (filterData.Uber) {
@@ -25,7 +25,7 @@ $('#eta-canvas').on('click', function(e){
         clickedY > etaLogos[i].top && clickedY < etaLogos[i].bottom) {
       console.log('clicked logo', etaLogos[i]);
     }
-  }
+  };
 
   //if (filterData.Biketown) biketownObject.getInfo(drawLogo);
 });

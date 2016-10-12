@@ -20,16 +20,16 @@ filterData.getTransportationOption = function() {
     });
     console.log($('#address').val());
     filterData.address = $('#address').val();
-    filterData.zoom = $('#searchable').find('input[type="radio"]:checked').val();
-    googleMapping.getUpdatedLocation(googleMapping.getCurrentLocation,mapViews.setMapOnAll,filterData);
+    filterData.zoom = parseInt($('#searchable').find('input[type="radio"]:checked').val());
+    googleMapping.getUpdatedLocation(mapViews.setMapOnAll,filterData);
   });
 };
 
-filterData.getZoom = function() {
+/*filterData.getZoom = function() {
   $('form').on('submit', function(event){
 
   });
-};
+};*/
 
 filterData.getTransportationOption();
 //filterData.getZoom();
