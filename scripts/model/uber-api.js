@@ -27,7 +27,7 @@
         var zoom;
         uberObject.dataAll = data;
         var eta = uberObject.attachEta();
-
+        driverEta.uberEta(eta);
         if (filterData.zoom === '18') {
           zoom = 300;
         }else if (filterData.zoom === '17') {

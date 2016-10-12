@@ -11,7 +11,7 @@
       return car.display_name === 'Lyft';
     });
     var eta = lyft[0].eta_seconds;
-    console.log('lyft eta from attachEta', eta);
+    //console.log('lyft eta from attachEta', eta);
     return eta;
   };
 
@@ -26,7 +26,7 @@
         var zoom;
         lyftObject.dataAll = data;
         var eta = lyftObject.attachEta();
-
+        driverEta.lyftEta(eta);
         if (filterData.zoom === '18') {
           zoom = 300;
         }else if (filterData.zoom === '17') {
