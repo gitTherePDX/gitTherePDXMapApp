@@ -34,6 +34,8 @@
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
+        //uberObject.updateInfo(googleMapping.currentLocation);
+        //lyftObject.updateInfo(googleMapping.currentLocation);
         googleMapping.map = firstFunction(13, googleMapping.currentLocation);
         secondFunction(googleMapping.map);
       }, function() {
@@ -57,10 +59,14 @@
           lat: results[0].geometry.location.lat(),
           lng: results[0].geometry.location.lng()
         };
+        //update with current location
+        //uberObject.updateInfo(googleMapping.currentLocation);
+        //lyftObject.updateInfo(googleMapping.currentLocation);
         googleMapping.map = googleMapping.createMap(13, googleMapping.currentLocation);
         secondFunction(googleMapping.map);
       });
     } else {
+      //update with current location
       googleMapping.map = firstFunction(googleMapping.createMap, mapViews.setMapOnAll);
       secondFunction(googleMapping.map);
     };
