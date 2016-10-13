@@ -191,32 +191,26 @@ input[type=radio]:not(old):checked + label > span > span{
 }
 
 #result-clickables {
-  height: 100%;
-  width: 15%;
   display: inline-block;
-  float: left;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 #result-clickables li {
-  margin-top: 40%;
-  margin-bottom: 50%;
-  width: 100%;
+  height: 100%;
+  display: inline;
 }
 
 #eta-visualization {
-  height: 100%;
-  width: 85%;
-  background-color: rgb(0,238,238);
-  display: inline-block;
-  float: right;
+  height: 75%;
+  width: 100%;
+  display: inline;
 }
 
 #eta-canvas {
   border: 1px solid black;
-  height: 100%;
+  height: 75%;
   width: 100%;
 }
 
