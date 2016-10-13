@@ -1,0 +1,89 @@
+#parallax-container {
+  background-color: rgb(255,255,255);
+  background-image: url('/assets/pdx-map.png');
+  /* background-image: url('/assets/Portland_map.png'); */
+  /* background-image: url('/assets/pdx-map.png'); */
+  background-attachment: fixed;
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0;
+  marging: 0;
+  position: static;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+header {
+  background-color: rgba(255,165,0,0.75);
+  height: 3.5rem;
+  width: 95%;
+  margin: 0 auto 3rem auto;
+  z-index: 1;
+}
+
+#searchable {
+  height: 10rem;
+  width: 95%;
+  background-color: rgba(0,75,255,0.75);
+  margin: .25rem auto;
+  padding-top: 0.1rem;
+  z-index: 0;
+}
+
+#results {
+  height: 22rem;
+  width: 95%;
+  background-color: rgba(0,75,255,0.75);
+  margin: 3rem auto;
+  padding-top: .1rem;
+}
+
+#footer {
+  background-color: rgba(255,165,0,0.75);
+  width: 95%;
+  margin: 3rem auto;
+}
+
+/*submit button styling*/
+.button {
+  padding: 0.25rem 0.75rem;
+  background-color: rgb(255,246,143);
+  /*transparent border*/
+  border: 1px solid rgba(0,0,0,0);
+
+  /*curved corners*/
+  border-radius: 0.4rem;
+
+  /*drop shadow*/
+  box-shadow: 0 0 0.75rem rgba(0,0,0,0.75);
+
+  /*text style*/
+  color: blue;
+  font-size: 1.2rem;
+
+  /*positioning*/
+  margin: 0.5rem 2.75rem 0 0;
+  float: right;
+}
+
+/*basic button hover & focus*/
+input#submit:hover,
+input#update:hover,
+input#submit:focus,
+input#update:focus {
+  background-color: rgb(255,215,0);
+  box-shadow: 0 0 .25rem rgba(0,0,0,0.75);
+}
+
+.corner-curve {
+  border-radius: 0.4rem;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
