@@ -88,9 +88,11 @@
         if (filterData.Biketown) {
           biketownObject.getStationInfo(mapViews.createMarkers);
         };
-      }, function() {
-        googleMapping.handleLocationError(true, googleMapping.map, googleMapping.map.getCenter());
-      });
+            //uberObject.updateInfo(googleMapping.currentLocation);
+            //lyftObject.updateInfo(googleMapping.currentLocation);
+      }); //function() {
+      //   googleMapping.handleLocationError(true, mapViews.map, mapViews.map.getCenter());
+      // });
 
 
     } else {
@@ -105,7 +107,7 @@
       if (filterData.Biketown) {
         biketownObject.getStationInfo(mapViews.createMarkers);
       };
-      handleLocationError(false, googleMapping.map, googleMapping.map.getCenter());
+      //handleLocationError(false, mapViews.map, mapViews.map.getCenter());
     };
   };
 
