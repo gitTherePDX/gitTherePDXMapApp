@@ -22,23 +22,30 @@
   };
 
   //station information data - latitude & longitude
-  biketownObject.getStationInfo = function() {
-    $.ajax('http://biketownpdx.socialbicycles.com/opendata/station_information.json',{
+  biketownObject.getStationInfo = function(firstcallback) {
+    $.ajax({
+      url: '/biketown/',
       method: 'GET',
       success: function(data) {
+        console.log('BIKETOWN!');
         console.log(data);
-        biketownObject.allStations = data;
-        var myArray = bikeTownData.data.stations;
-        myArray.forEach(listElements);
-
-        function listElements(el, index, array) {
-          for (var key in el) {
-            console.log(key, el[key]);
-          }
-        }
+        biketownObject.allStations = data.data.stations;
+        googleMapping.map = googleMapping.createMap(filterData.zoom, googleMapping.currentLocation);
+        firstcallback();
+        //should take a callback to map out lat/lng
       },
       error: function() {
         console.log('whoops, there seems to be an error');
+        $.ajax({
+          url: 'data/biketownlocationbackup.json',
+          method: 'GET',
+          success: function(data) {
+            biketownObject.allStations = data.data.stations;
+            console.log('got data from backup json');
+            googleMapping.map = googleMapping.createMap(filterData.zoom, googleMapping.currentLocation);
+            firstcallback();
+          }
+        });
       }
     });
   };

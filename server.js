@@ -85,11 +85,20 @@ function proxyLyftGetAuth(request, response) {
 //
 // }
 
+function proxyBikeTown(request, response) {
+  console.log(request.params);
+  (requestProxy({
+    url: 'http://biketownpdx.socialbicycles.com/opendata/station_information.json'
+  }))(request, response);
+};
+
 app.get('/uber/*', proxyUber);
 
 app.get('/lyft/*', proxyLyft);
 
 app.post('/tokenlyft/*', proxyLyftGetAuth);
+
+app.get('/biketown/*', proxyBikeTown);
 
 app.use(express.static('./'));
 
