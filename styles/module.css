@@ -136,6 +136,7 @@ input[type=radio]:not(old):checked + label > span > span{
   width: 3.75rem;
   padding-top: 0.5rem;
   display: inline-block;
+  /*float: left;*/
 }
 
 .results-logo {
@@ -150,6 +151,10 @@ input[type=radio]:not(old):checked + label > span > span{
   background-color: rgb(0,238,238);
   margin-left: 0.1rem;
   text-align: center;
+}
+
+#title-bar h1 {
+  margin: 0 auto;
 }
 
 #about p {
@@ -178,21 +183,18 @@ input[type=radio]:not(old):checked + label > span > span{
 #location {
   height: 2rem;
   width: 95%;
-  background-color: rgb(0,238,238);
   margin-left: 0.1rem;
 }
 
 #transit-options {
   height: 3rem;
   width: 95%;
-  background-color: rgb(0,238,238);
   margin: 0.1rem;
 }
 
 #wait-time {
   height: 3rem;
   width: 95%;
-  background-color: rgb(0,238,238);
   margin: 0.1rem;
 }
 
@@ -201,17 +203,20 @@ input[type=radio]:not(old):checked + label > span > span{
   list-style: none;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 #result-clickables li {
   height: 100%;
   display: inline;
+  margin: 0 auto;
+  padding: 0 6.661%;
 }
 
 #eta-visualization {
   height: 75%;
   width: 100%;
-  display: inline;
+  display: block;
 }
 
 #eta-canvas {
@@ -228,4 +233,21 @@ input[type=radio]:not(old):checked + label > span > span{
 
 #lyft-pop {
 
+}
+
+
+@media only screen and (min-width: 620px) {
+  #result-clickables li {
+    height: 100%;
+    display: inline;
+    margin: 0 auto;
+    padding: 0 11.0%;
+  }
+}
+
+@media only screen and (min-width: 1040px) {
+  main {
+    max-width: 940px;
+    margin: 0 auto;
+  }
 }
