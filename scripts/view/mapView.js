@@ -4,14 +4,22 @@
   var mapViews = {};
 
   mapViews.allMarkers = [];
+  mapViews.currentMarker;
 
   mapViews.createMarkers = function() {
     //will use this array temporarily until we get more data;
     biketownObject.allStations.forEach(function(object) {
       mapViews.allMarkers.push(new google.maps.Marker({
         position: { lat: object.lat, lng: object.lon},
+        label: 'BT'
       }));
     });
+    //add current location marker
+    mapViews.currentMarker = new google.maps.InfoWindow({
+      map: googleMapping.map
+    });
+    mapViews.currentMarker.setPosition(googleMapping.currentLocation);
+    mapViews.currentMarker.setContent('You are here.');
     mapViews.setMapOnAll(googleMapping.map);
     //firstcallback(googleMapping.getCurrentLocation, secondcallback);
   };
