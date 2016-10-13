@@ -17,17 +17,16 @@
 }
 
 header {
-  background-color: rgba(255,165,0,0.75);
-  height: 3.5rem;
+  background-color: rgba(100,149,237,0.75); /*orange rgba(255,165,0,0.75)*/
+  height: 5rem;
   width: 95%;
   margin: 0 auto 3rem auto;
-  z-index: 1;
 }
 
 #searchable {
   height: 10rem;
   width: 95%;
-  background-color: rgba(0,75,255,0.75);
+  background-color: rgba(100,149,237,0.75);
   margin: .25rem auto;
   padding-top: 0.1rem;
   z-index: 0;
@@ -36,15 +35,9 @@ header {
 #results {
   height: 22rem;
   width: 95%;
-  background-color: rgba(0,75,255,0.75);
+  background-color: rgba(100,149,237,0.75);
   margin: 3rem auto;
   padding-top: .1rem;
-}
-
-#footer {
-  background-color: rgba(255,165,0,0.75);
-  width: 95%;
-  margin: 3rem auto;
 }
 
 /*submit button styling*/
@@ -80,6 +73,10 @@ input#update:focus {
 
 .corner-curve {
   border-radius: 0.4rem;
+}
+
+.center-it {
+  margin: 0 auto;
 }
 
 .clearfix::after {
