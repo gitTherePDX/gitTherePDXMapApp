@@ -51,7 +51,7 @@
   // };
 
   googleMapping.getUpdatedLocation = function(selectionObject) {
-    $('.bike-map').empty();
+    $('.biketown-map').empty();
     etaObject.buildCanvas();
     if (0 < selectionObject.address.length) {
       new google.maps.Geocoder()
@@ -135,7 +135,7 @@
   };
 
   googleMapping.createMap = function(zoomVal, latLng) {
-    var map = new google.maps.Map(document.querySelectorAll('.bike-map')[0], {
+    var map = new google.maps.Map(document.querySelectorAll('.biketown-map')[0], {
       zoom: zoomVal,
       center: latLng
     });

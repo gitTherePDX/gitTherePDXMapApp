@@ -12,7 +12,7 @@
       return car.display_name === 'Lyft';
     });
     var eta = lyft[0].eta_seconds;
-    console.log('lyft eta from attachEta', eta);
+    //console.log('lyft eta from attachEta', eta);
     return eta;
   };
 
@@ -27,6 +27,7 @@
         lyftObject.dataAll = data.eta_estimates;
         console.log(lyftObject.dataAll);
         var eta = lyftObject.attachEta();
+        moreInfo.lyftEta(eta);
         console.log('get info worked');
         var etaTransform = etaObject.etaTransform(eta);
 
@@ -57,6 +58,7 @@
         //console.log(filterData.LyftOAuth);
 
         var eta = lyftObject.attachEta();
+        moreInfo.lyftEta(eta);
         //console.log('get info worked');
         var etaTransform = etaObject.etaTransform(eta);
 

@@ -27,7 +27,7 @@
 
         uberObject.dataAll = data;
         var eta = uberObject.attachEta();
-
+        moreInfo.uberEta(eta);
         var etaTransform = etaObject.etaTransform(eta);
 
         callback(etaObject.context, etaTransform, etaObject.canvas.clientHeight/10, 'uber-logo', etaObject.etaLogos);
