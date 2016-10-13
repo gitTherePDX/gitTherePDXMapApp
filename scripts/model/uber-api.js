@@ -30,7 +30,7 @@
         moreInfo.uberEta(eta);
         var etaTransform = etaObject.etaTransform(eta);
 
-        callback(etaObject.context, etaTransform, etaObject.canvas.clientHeight/10, 'uber-logo', etaObject.etaLogos);
+        callback(etaObject.context, eta, 'uber-logo');
       },
       error: function(jqXHR, textStatus, errorThrown) {
         // console.log('What happened?');

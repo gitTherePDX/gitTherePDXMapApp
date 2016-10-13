@@ -67,7 +67,7 @@
           lyftObject.getInfo(etaObject.drawLogo,googleMapping.currentLocation);
         }
         if (filterData.Biketown) {
-          biketownObject.getStationInfo(mapViews.createMarkers);
+          biketownObject.getStationInfo(mapViews.createMarkers,etaObject.drawLogo);
         };
         //update with current location
         //uberObject.updateInfo(googleMapping.currentLocation);

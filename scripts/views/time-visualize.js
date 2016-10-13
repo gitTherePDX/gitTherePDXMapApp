@@ -18,26 +18,43 @@
   //   this.bottom = y + etaObject.canvas.clientHeight;
   // };
 
-  etaObject.drawLogo = function(context, x, y, imgId) {
-    // var img = document.getElementById(imgId);
-    // //draw a bar
-    context.beginPath();
-    context.moveTo(100, 150);
-    context.lineTo(450, 50);
-    context.stroke();
+  etaObject.drawLogo = function(context, eta, imgId) {
+    console.log('eta', eta, imgId, 'imgId');
+    var yDivisor;
+    var color;
+    var img = document.getElementById(imgId);
 
-    // //draw the logo
-    // context.drawImage(img,x,y);
+    if (imgId === 'uber-logo') {
+      yDivisor = 2.5;
+      color = 'rgba(48,48,48,0.75)';
+    }else if (imgId === 'lyft-logo') {
+      yDivisor = 1.35;
+      color = 'rgba(205,41,144,0.75)';
+    }else if (imgId === 'bike-logo') {
+      yDivisor = 8;
+      color = 'rgba(255,69,0,0.75)';
+    }
+    //console.log('etaObject.canvas.height', etaObject.canvas.height, 'y', y);
 
-    var etaLogo = new etaObject.Logo(x, y);
-    etaObject.etaLogos.push(etaLogo);
-    //console.log(etaLogo);
-    console.log('clientwidth=', etaObject.canvas.clientWidth, 'clientheight=', etaObject.canvas.clientHeight);
+    //draw a rectangle rect(x, y, width, height)
+    etaObject.context.beginPath();
+    etaObject.context.rect(40, (etaObject.canvas.clientHeight / yDivisor) + 5, etaObject.canvas.clientWidth / (eta / 20), etaObject.canvas.clientHeight / 6.3);
+    etaObject.context.fillStyle = color;
+    etaObject.context.fill();
+
+    //draw the logo
+    etaObject.context.drawImage(img,0,etaObject.canvas.clientHeight / yDivisor);
+
+    // var etaLogo = new etaObject.Logo(x, y);
+    // etaObject.etaLogos.push(etaLogo);
+    // //console.log(etaLogo);
+    // console.log('clientwidth=', etaObject.canvas.clientWidth, 'clientheight=', etaObject.canvas.clientHeight);
   };
 
   etaObject.buildCanvas = function() {
     //clear canvas on update
     etaObject.context.clearRect(0, 0, etaObject.canvas.width, etaObject.canvas.height);
+
     //gradient for style on update
     var grd=etaObject.context.createLinearGradient(0,0,etaObject.canvas.clientWidth,0);
     grd.addColorStop(0,'white');
@@ -45,7 +62,13 @@
 
     etaObject.context.fillStyle=grd;
     etaObject.context.fillRect(0,0,etaObject.canvas.clientWidth,etaObject.canvas.clientHeight);
-    //create scale at right and left edges - stretch
+
+    //add text for scale
+    etaObject.context.fillStyle = 'red';
+    etaObject.context.font = '1rem sansserif';
+    etaObject.context.fillText('0 min', 40, 20);
+    etaObject.context.font = '1rem sansserif';
+    etaObject.context.fillText('15 min', (etaObject.canvas.clientWidth - 50), 20);
   };
 
   etaObject.etaTransform = function(eta) {
