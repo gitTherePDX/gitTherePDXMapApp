@@ -21,7 +21,7 @@
     var latitude = selectionObject.lat;
     var oauth = filterData.LyftOAuth;
     var ajaxQuery = {
-      url: 'http://localhost:3000/lyft/' + latitude + '/' + longitude + '/' + oauth,
+      url: '/lyft/' + latitude + '/' + longitude + '/' + oauth,
       type: 'GET',
       success: function(data, textStatus, jqXHR) {
         lyftObject.dataAll = data.eta_estimates;
@@ -48,7 +48,7 @@
     var longitude = dataObject.lng;
     var oauth = filterData.LyftOAuth;
     $.ajax({
-      url: 'http://localhost:3000/tokenlyft/' + latitude + '/' + longitude + '/' + oauth,
+      url: '/tokenlyft/' + latitude + '/' + longitude + '/' + oauth,
       type: 'POST',
       success: function(data,textStatus, jqXHR) {
         console.log(data);
