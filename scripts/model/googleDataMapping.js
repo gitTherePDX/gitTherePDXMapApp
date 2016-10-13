@@ -73,26 +73,26 @@
         //uberObject.updateInfo(googleMapping.currentLocation);
         //lyftObject.updateInfo(googleMapping.currentLocation);
       });
-    // } else if (navigator.geolocation) {
-    //   navigator.geolocation.getCurrentPosition(function(position) {
-    //     googleMapping.currentLocation = {
-    //       lat: position.coords.latitude,
-    //       lng: position.coords.longitude
-    //     };
-    //     if (filterData.Uber) {
-    //       uberObject.getInfo(etaObject.drawLogo, googleMapping.currentLocation);
-    //     }
-    //     if (filterData.Lyft) {
-    //       lyftObject.getInfo(etaObject.drawLogo,googleMapping.currentLocation);
-    //     }
-    //     if (filterData.Biketown) {
-    //       biketownObject.getStationInfo(mapViews.createMarkers);
-    //     };
-    //         //uberObject.updateInfo(googleMapping.currentLocation);
-    //         //lyftObject.updateInfo(googleMapping.currentLocation);
-    //   }); //function() {
-    //   //   googleMapping.handleLocationError(true, mapViews.map, mapViews.map.getCenter());
-    //   // });
+    } else if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        googleMapping.currentLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        if (filterData.Uber) {
+          uberObject.getInfo(etaObject.drawLogo, googleMapping.currentLocation);
+        }
+        if (filterData.Lyft) {
+          lyftObject.getInfo(etaObject.drawLogo,googleMapping.currentLocation);
+        }
+        if (filterData.Biketown) {
+          biketownObject.getStationInfo(mapViews.createMarkers);
+        };
+            //uberObject.updateInfo(googleMapping.currentLocation);
+            //lyftObject.updateInfo(googleMapping.currentLocation);
+      }, function() {
+        googleMapping.handleLocationError(true, mapViews.map, mapViews.map.getCenter());
+      });
 
 
     } else {
