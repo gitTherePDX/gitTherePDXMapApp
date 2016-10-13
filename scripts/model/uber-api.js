@@ -19,7 +19,7 @@
     var longitude = selectionObject.lng;
     var latitude = selectionObject.lat;
     var ajaxQuery = {
-      url: 'http://localhost:3000/uber/' + latitude + '/' + longitude,
+      url: '/uber/' + latitude + '/' + longitude,
       //url: 'data/uber.json',
       type: 'GET',
       success: function(data, textStatus, jqXHR) {
