@@ -11,26 +11,32 @@
 
   etaObject.etaLogos = [];
 
-  etaObject.Logo = function(x, y) {
-    this.left = x;
-    this.top = y;
-    this.right = x + etaObject.canvas.clientWidth;
-    this.bottom = y + etaObject.canvas.clientHeight;
-  };
+  // etaObject.Logo = function(x, y) {
+  //   this.left = x;
+  //   this.top = y;
+  //   this.right = x + etaObject.canvas.clientWidth;
+  //   this.bottom = y + etaObject.canvas.clientHeight;
+  // };
 
   etaObject.drawLogo = function(context, x, y, imgId) {
-    var img = document.getElementById(imgId);
-    //draw the logo
-    context.drawImage(img,x,y);
+    // var img = document.getElementById(imgId);
+    // //draw a bar
+    context.beginPath();
+    context.moveTo(100, 150);
+    context.lineTo(450, 50);
+    context.stroke();
+
+    // //draw the logo
+    // context.drawImage(img,x,y);
 
     var etaLogo = new etaObject.Logo(x, y);
     etaObject.etaLogos.push(etaLogo);
     //console.log(etaLogo);
-    //console.log('clientwidth=', etaObject.canvas.clientWidth, 'clientheight=', etaObject.canvas.clientHeight);
+    console.log('clientwidth=', etaObject.canvas.clientWidth, 'clientheight=', etaObject.canvas.clientHeight);
   };
 
   etaObject.buildCanvas = function() {
-  //clear canvas on update
+    //clear canvas on update
     etaObject.context.clearRect(0, 0, etaObject.canvas.width, etaObject.canvas.height);
     //gradient for style on update
     var grd=etaObject.context.createLinearGradient(0,0,etaObject.canvas.clientWidth,0);
@@ -39,6 +45,7 @@
 
     etaObject.context.fillStyle=grd;
     etaObject.context.fillRect(0,0,etaObject.canvas.clientWidth,etaObject.canvas.clientHeight);
+    //create scale at right and left edges - stretch
   };
 
   etaObject.etaTransform = function(eta) {

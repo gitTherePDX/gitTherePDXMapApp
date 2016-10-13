@@ -27,10 +27,9 @@
     <a href="/tokenlyft">here</a>
 
     <header id="title-bar" class="clearfix corner-curve">
-      <section class="heading-group-h1">
-        <div id="logo"><!-- some svg animation?, some module animation --></div>
-        <h1>gitTherePDX</h1>
-      </section>
+
+      <h1><img id="header-logo" src="assets/bike-car-spin.gif" alt="spinning bike/car wheel" /><span id="h1-text">gitTherePDX</span></h1>
+
       <nav class="main-nav">
         <!-- Hamburger Menu -->
         <div class="icon-menu"></div>
@@ -45,7 +44,7 @@
       <form action="">
 
         <div id="location" class="corner-curve">
-          <label>Location </label><input class="corner-curve" id="address" name="Location" style="width: 75%" placeholder="Enter address or closest intersection">
+          <label>Location </label><input class="corner-curve" id="address" name="Location" style="width: 75%" placeholder="Enter address or closest intersection" required>
         </div>
 
         <div id="transit-options" class="corner-curve">
@@ -79,6 +78,12 @@
 
 
     <div id="results" class="corner-curve">
+      <ul id="result-clickables">
+        <li><img class="results-logo" src="assets/biketown-logo.png" alt="biketown"></li>
+        <li><img class="results-logo" src="assets/uber-logo.png" alt="uber"></li>
+        <li><img class="results-logo" src="assets/lyft-logo.png" alt="lyft"></li>
+      </ul>
+
       <div id="eta-visualization" class="corner-curve">
           <canvas id="eta-canvas" class="corner-curve"></canvas>
       </div>
@@ -99,7 +104,7 @@
       </div>
     </div>
 
-    <footer id="footer">&copy;2016 | gitTherePDX | Intersect With Transit!</footer>
+    <footer class="corner-curve">&copy;2016 | gitTherePDX | Intersect With Transit!</footer>
 
   </div>
 
