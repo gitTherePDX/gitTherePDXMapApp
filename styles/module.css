@@ -165,8 +165,13 @@ input[type=radio]:not(old):checked + label > span > span{
 }
 
 #about img {
-  width: 100%;
-  height: 40%;
+  /*width: 100%;
+  height: 40%;*/
+}
+
+.portrait img {
+  border-radius: 50%;
+  max-height: 280px;
 }
 
 #location {
