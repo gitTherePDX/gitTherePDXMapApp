@@ -91,7 +91,7 @@
             //uberObject.updateInfo(googleMapping.currentLocation);
             //lyftObject.updateInfo(googleMapping.currentLocation);
       }, function() {
-        googleMapping.handleLocationError(true, mapViews.map, mapViews.map.getCenter());
+        googleMapping.handleLocationError(true, googleMapping.map, googleMapping.map.getCenter());
       });
 
 
@@ -107,7 +107,7 @@
       if (filterData.Biketown) {
         biketownObject.getStationInfo(mapViews.createMarkers);
       };
-      //handleLocationError(false, mapViews.map, mapViews.map.getCenter());
+      handleLocationError(false, googleMapping.map, googleMapping.map.getCenter());
     };
   };
 
