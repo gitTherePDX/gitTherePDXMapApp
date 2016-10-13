@@ -1,0 +1,36 @@
+[{
+	"localized_display_name": "uberX",
+	"estimate": 180,
+	"display_name": "uberX",
+	"product_id": "a6eef2e1-c99a-436f-bde9-fefb9181c0b0"
+}, {
+	"localized_display_name": "uberXL",
+	"estimate": 240,
+	"display_name": "uberXL",
+	"product_id": "a5e722b3-6a20-4c90-b5d7-f9a523904348"
+}, {
+	"localized_display_name": "SELECT",
+	"estimate": 240,
+	"display_name": "SELECT",
+	"product_id": "59657f05-7200-4e64-b991-ae2ee8e74f88"
+}, {
+	"localized_display_name": "uberASSIST",
+	"estimate": 600,
+	"display_name": "uberASSIST",
+	"product_id": "8ddc7ce4-67d1-4ac4-8b56-205bd6a6314e"
+}, {
+	"localized_display_name": "WAV",
+	"estimate": 1080,
+	"display_name": "WAV",
+	"product_id": "0e9145be-98bb-48dd-a0bf-32964ac8df19"
+}, {
+	"localized_display_name": "TAXI WAV",
+	"estimate": 300,
+	"display_name": "TAXI WAV",
+	"product_id": "adddeca7-8e8b-4359-98a2-83bb3a0ed495"
+}, {
+	"localized_display_name": "TAXI",
+	"estimate": 240,
+	"display_name": "TAXI",
+	"product_id": "b5452f71-0bfa-4648-8c5b-ba85b61a6b99"
+}]

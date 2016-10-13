@@ -1,0 +1,199 @@
+body {
+  background-color: rgb(238,154,0);
+}
+
+h1 {
+  text-align: center;
+}
+
+/*to size logos displayed in canvas*/
+.logo-aspect {
+  width: 50%;
+  height: auto;
+}
+
+/*custom checkboxes and radio buttons*/
+
+/*hiding checkboxes & radio buttons*/
+input[type=checkbox]:not(old),
+input[type=radio   ]:not(old) {
+  width     : 2em;
+  margin    : 0;
+  padding   : 0;
+  font-size : 1em;
+  opacity   : 0;
+}
+
+/*position the label*/
+input[type=checkbox]:not(old) + label,
+input[type=radio   ]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -2em;
+  line-height  : 1.5em;
+}
+
+/* creating the unchecked graphic*/
+input[type=checkbox]:not(old) + label > span,
+input[type=radio   ]:not(old) + label > span{
+  display          : inline-block;
+  width            : 0.875em;
+  height           : 0.875em;
+  margin           : 0.25em 0.5em 0.25em 0.25em;
+  border           : 0.0625em solid rgb(192,192,192);
+  border-radius    : 0.25em;
+  background       : rgb(224,224,224);
+  background-image :    -moz-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :     -ms-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :      -o-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image : -webkit-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :         linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  vertical-align   : bottom;
+}
+
+/*background gradient reversed on selected checkboxes & radio buttons*/
+input[type=checkbox]:not(old):checked + label > span,
+input[type=radio   ]:not(old):checked + label > span{
+  background-image :    -moz-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :     -ms-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :      -o-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image : -webkit-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :         linear-gradient(rgb(224,224,224),rgb(240,240,240));
+}
+
+/*display tick in clicked checkboxes*/
+input[type=checkbox]:not(old):checked + label > span:before{
+  content     : '✓';
+  display     : block;
+  width       : 1em;
+  color       : rgb(153,204,102);
+  font-size   : 0.875em;
+  line-height : 1em;
+  text-align  : center;
+  text-shadow : 0 0 0.0714em rgb(115,153,77);
+  font-weight : bold;
+}
+
+/*display curved box in selected radio buttons*/
+input[type=radio]:not(old):checked + label > span > span{
+  display          : block;
+  width            : 0.5em;
+  height           : 0.5em;
+  margin           : 0.125em;
+  border           : 0.0625em solid rgb(115,153,77);
+  border-radius    : 0.125em;
+  background       : rgb(153,204,102);
+  background-image :    -moz-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image :     -ms-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image :      -o-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image : -webkit-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+  background-image :         linear-gradient(rgb(179,217,140),rgb(153,204,102));
+}
+
+/**/
+
+
+
+/*submit button styling*/
+.button {
+  padding: 0.25rem 0.75rem;
+  background-color: rgb(255,246,143);
+  /*transparent border*/
+  border: 1px solid rgba(0,0,0,0);
+
+  /*curved corners*/
+  border-radius: 0.4rem;
+
+  /*drop shadow*/
+  box-shadow: 0 0 0.75rem rgba(0,0,0,0.75);
+
+  /*text style*/
+  color: blue;
+  font-size: 1.2rem;
+
+  /*positioning*/
+  margin: 0.5rem 2.75rem 0 0;
+  float: right;
+}
+
+/*basic button hover & focus*/
+input#submit:hover,
+input#update:hover,
+input#submit:focus,
+input#update:focus {
+  background-color: rgb(255,215,0);
+  box-shadow: 0 0 .25rem rgba(0,0,0,0.75);
+}
+
+
+#title-bar {
+  height: 3.5rem;
+  width: 100%;
+  background-color: orange;
+}
+
+#searchable {
+  height: 10rem;
+  width: 100%;
+  background-color: rgb(0,75,255);
+  margin: .25rem 0;
+  padding-top: 0.1rem;
+}
+
+#location {
+  height: 2rem;
+  width: 95%;
+  background-color: rgb(0,238,238);
+  margin-left: 0.1rem;
+}
+
+#transit-options {
+  height: 3rem;
+  width: 95%;
+  background-color: rgb(0,238,238);
+  margin: 0.1rem;
+}
+
+#results {
+  height: 22rem;
+  width: 100%;
+  background-color: rgb(0,75,255);
+  margin: .5rem 0;
+  padding-top: .1rem;
+}
+
+#wait-time {
+  height: 3rem;
+  width: 95%;
+  background-color: rgb(0,238,238);
+  margin: 0.1rem;
+}
+
+#eta-visualization {
+  height: 15rem;
+  width: 95%;
+  background-color: rgb(0,238,238);
+  margin: 0.1rem;
+}
+
+#eta-canvas {
+  border: 1px solid black;
+  height: 100%;
+  width: 100%;
+}
+
+.corner-curve {
+  border-radius: 0.4rem;
+}
+/*try to center using margin: 0 auto*/
+/*probs: check that containers have a width*/
+
+
+/*popup visualizations*/
+
+#uber-pop {
+
+}
+
+#lyft-pop {
+
+}

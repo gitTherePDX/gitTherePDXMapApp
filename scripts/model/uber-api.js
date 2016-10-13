@@ -6,26 +6,40 @@
 
   uberObject.dataAll = [];
 
-  uberObject.getInfo = function() {
-    var longitude = '-122.6765';
-    var latitude = '45.5231';
+  uberObject.attachEta = function() {
+    var uberX = uberObject.dataAll.times.filter(function(car){
+      return car.display_name === 'uberX';
+    });
+    var eta = uberX[0].estimate;
+    console.log('uber eta from attachEta', eta);
+    return eta;
+  };
+
+  uberObject.getInfo = function(callback, selectionObject) {
+    var longitude = selectionObject.lng;
+    var latitude = selectionObject.lat;
     var ajaxQuery = {
-      url: 'http://localhost:3000/uber/' + latitude + '/' + longitude,
+      url: '/uber/' + latitude + '/' + longitude,
+      //url: 'data/uber.json',
       type: 'GET',
       success: function(data, textStatus, jqXHR) {
-        uberObject.dataAll = data.times;
-        console.log(data);
-        console.log(textStatus);
-        console.log(jqXHR);
+        //uberObject.dataAll = data.times;
+
+        uberObject.dataAll = data;
+        var eta = uberObject.attachEta();
+
+        var etaTransform = etaObject.etaTransform(eta);
+
+        callback(etaObject.context, etaTransform, etaObject.canvas.clientHeight/10, 'uber-logo', etaObject.etaLogos);
       },
       error: function(jqXHR, textStatus, errorThrown) {
-        console.log('What happened?');
-        console.log(jqXHR, textStatus, errorThrown);
+        // console.log('What happened?');
+        // console.log(jqXHR, textStatus, errorThrown);
       }
     };
     $.ajax(ajaxQuery);
   };
 
   module.uberObject = uberObject;
-  uberObject.getInfo();
+  //uberObject.getInfo(etaObject.drawLogo);
 })(window);
