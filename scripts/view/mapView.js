@@ -7,11 +7,12 @@
 
   mapViews.createMarkers = function() {
     //will use this array temporarily until we get more data;
-    googleMapping.locationsAddressesLatLng.forEach(function(object) {
+    biketownObject.allStations.forEach(function(object) {
       mapViews.allMarkers.push(new google.maps.Marker({
-        position: object,
+        position: { lat: object.lat, lng: object.lon},
       }));
     });
+    mapViews.setMapOnAll(googleMapping.map);
     //firstcallback(googleMapping.getCurrentLocation, secondcallback);
   };
 
@@ -46,7 +47,6 @@
   mapViews.initializePage = function() {
     mapViews.changeZoom();
     //might want to make this function a callback of createMarkers
-    mapViews.createMarkers();
   };
 
   module.mapViews = mapViews;

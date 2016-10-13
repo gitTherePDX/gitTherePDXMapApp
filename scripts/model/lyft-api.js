@@ -54,10 +54,10 @@
         console.log(data);
         filterData.LyftOAuth = data.req.headers.authorization.split(' ')[1];
         lyftObject.dataAll = JSON.parse(data.text).eta_estimates;
-        console.log(filterData.LyftOAuth);
+        //console.log(filterData.LyftOAuth);
 
         var eta = lyftObject.attachEta();
-        console.log('get info worked');
+        //console.log('get info worked');
         var etaTransform = etaObject.etaTransform(eta);
 
         callback(etaObject.context, etaTransform, etaObject.canvas.clientHeight / 6, 'lyft-logo', etaObject.etaLogos);

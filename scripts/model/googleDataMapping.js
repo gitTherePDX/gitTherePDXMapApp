@@ -20,11 +20,11 @@
 
   //placeholder of lat/lng of above addresses...again for testing map api
   googleMapping.locationsAddressesLatLng = [
-    {lat:45.5190046,lng:-122.67688190000001},
-    {lat:45.5122623,lng:-122.67883110000002},
-    {lat:45.5115165,lng:-122.68207330000001},
-    {lat:45.5153234,lng:-122.6655189},
-    {lat:45.5122046,lng:-122.65358530000003}
+    // {lat:45.5190046,lng:-122.67688190000001},
+    // {lat:45.5122623,lng:-122.67883110000002},
+    // {lat:45.5115165,lng:-122.68207330000001},
+    // {lat:45.5153234,lng:-122.6655189},
+    // {lat:45.5122046,lng:-122.65358530000003}
   ];
 
   // googleMapping.getCurrentLocation = function(callbackFunction) {
@@ -50,7 +50,7 @@
   //   };
   // };
 
-  googleMapping.getUpdatedLocation = function(callbackFunction, selectionObject) {
+  googleMapping.getUpdatedLocation = function(selectionObject) {
     $('.bike-map').empty();
     etaObject.buildCanvas();
     if (0 < selectionObject.address.length) {
@@ -66,11 +66,12 @@
         if (filterData.Lyft) {
           lyftObject.getInfo(etaObject.drawLogo,googleMapping.currentLocation);
         }
+        if (filterData.Biketown) {
+          biketownObject.getStationInfo(mapViews.createMarkers);
+        };
         //update with current location
         //uberObject.updateInfo(googleMapping.currentLocation);
         //lyftObject.updateInfo(googleMapping.currentLocation);
-        googleMapping.map = googleMapping.createMap(selectionObject.zoom, googleMapping.currentLocation);
-        callbackFunction(googleMapping.map);
       });
     } else if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
@@ -84,12 +85,11 @@
         if (filterData.Lyft) {
           lyftObject.getInfo(etaObject.drawLogo,googleMapping.currentLocation);
         }
-            //uberObject.updateInfo(googleMapping.currentLocation);
-            //lyftObject.updateInfo(googleMapping.currentLocation);
-        googleMapping.map = googleMapping.createMap(filterData.zoom, googleMapping.currentLocation);
-        callbackFunction(googleMapping.map);
+        if (filterData.Biketown) {
+          biketownObject.getStationInfo(mapViews.createMarkers);
+        };
       }, function() {
-        googleMapping.handleLocationError(true, mapViews.map, mapViews.map.getCenter());
+        googleMapping.handleLocationError(true, googleMapping.map, googleMapping.map.getCenter());
       });
 
 
@@ -102,9 +102,10 @@
       if (filterData.Lyft) {
         lyftObject.getInfo(etaObject.drawLogo,googleMapping.currentLocation);
       }
-      googleMapping.map = googleMapping.createMap(filterData.zoom, googleMapping.currentLocation);
-      callbackFunction(googleMapping.map);
-      handleLocationError(false, mapViews.map, mapViews.map.getCenter());
+      if (filterData.Biketown) {
+        biketownObject.getStationInfo(mapViews.createMarkers);
+      };
+      handleLocationError(false, googleMapping.map, googleMapping.map.getCenter());
     };
   };
 
@@ -130,7 +131,7 @@
   };
 
   googleMapping.createMap = function(zoomVal, latLng) {
-    var map = new google.maps.Map(document.querySelectorAll('#bike-map')[0], {
+    var map = new google.maps.Map(document.querySelectorAll('.bike-map')[0], {
       zoom: zoomVal,
       center: latLng
     });
