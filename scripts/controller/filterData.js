@@ -3,7 +3,8 @@ var filterData = {
   Biketown: false,
   Lyft: false,
   Uber: false,
-  zoom: 17
+  zoom: 17,
+  LyftOAuth: ' 1',
 };
 
 filterData.getTransportationOption = function() {

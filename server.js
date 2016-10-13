@@ -24,7 +24,7 @@ function proxyUber(request, response) {
 function proxyLyft(request, response) {
   var bearerToken;
   // console.log('Routing Lyft request for ');
-  // console.log('the requst is ', request.params);
+  console.log('the requst is ', request.params);
   // console.log('the response is ', response.params);
   process.env.TOKENWHATEVER='hello';
   console.log(process.env.BEARER_TOKEN);
@@ -35,7 +35,7 @@ function proxyLyft(request, response) {
       lng: request.params[0].split('/')[1]
     },
     headers: {
-      Authorization: 'Bearer ' + process.env.BEARER_TOKEN
+      authorization: 'Bearer ' + request.params[0].split('/')[2]
     }
   }))(request, response);
 }
@@ -52,13 +52,26 @@ function proxyLyftGetAuth(request, response) {
         console.log('error');
       } else {
         console.log('success');
-        
-
-      }
+        var token = res.body.access_token;
+        superagent
+          .get('https://api.lyft.com/v1/eta')
+          .query({lat:request.params[0].split('/')[0]})
+          .query({lng:request.params[0].split('/')[1]})
+          .set('authorization','Bearer ' + token)
+          .end(function(err, resp) {
+            if (err) {
+              console.log('error');
+              response.end();
+            } else {
+              console.log('further success');
+              console.log(resp);
+              response.json(resp);
+            };
+          }
+        );
+      };
     });
-  console.log(process.env.BEARER_TOKEN);
-  response.json();
-}
+};
 
 //   (requestProxy({
 //     "url": "https://api.lyft.com/oauth/token",
