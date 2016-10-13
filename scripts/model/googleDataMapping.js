@@ -121,7 +121,7 @@
   };
 
   googleMapping.createMap = function(zoomVal, latLng) {
-    var map = new google.maps.Map(document.querySelectorAll('.bike-map')[0], {
+    var map = new google.maps.Map(document.querySelectorAll('#bike-map')[0], {
       zoom: zoomVal,
       center: latLng
     });
