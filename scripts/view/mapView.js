@@ -52,8 +52,17 @@
     mapViews.allMarkers = [];
   };
 
+  mapViews.setUpHamburger = function() {
+    $('.icon-menu').on('click', function(event) {
+      var $this = $(this);
+      var $ul = $(this).parents('nav').find('ul');
+      $ul.slideToggle();
+    });
+  };
+
   mapViews.initializePage = function() {
     mapViews.changeZoom();
+    mapViews.setUpHamburger();
     //might want to make this function a callback of createMarkers
   };
 
