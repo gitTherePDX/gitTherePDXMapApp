@@ -16,7 +16,7 @@
     var lat2 = marker.lat;
     var lon2 = marker.lon;
 
-    var R = 6371; // Radius of the earth in km
+    var R = 6371; //Radius of the earth in km
     var dLat = (lat2-lat1) * (Math.PI/180);
     var dLon = (lon2-lon1) * (Math.PI/180);
     var a =
@@ -25,8 +25,8 @@
       Math.sin(dLon/2) * Math.sin(dLon/2)
       ;
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    var d = R * c * 5 / 8; // approx distance in miles
-    return d * 1161;
+    var d = R * c * 5 / 8; //approx distance in miles
+    return d * 1161; //approx distance in seconds
   };
 
   biketownObject.getOpenData = function() {
