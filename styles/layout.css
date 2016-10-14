@@ -44,7 +44,7 @@ header {
 /*submit button styling*/
 .button {
   padding: 0.25rem 0.75rem;
-  background-color: rgb(255,246,143);
+  background-color: rgb(255,236,139);
   /*transparent border*/
   border: 1px solid rgba(0,0,0,0);
 
@@ -59,7 +59,7 @@ header {
   font-size: 1.2rem;
 
   /*positioning*/
-  margin: 0.5rem 2.75rem 0 0;
+  margin: 0.5rem 1.55rem 0 0;
   float: right;
 }
 
