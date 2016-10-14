@@ -105,6 +105,8 @@ input[type=radio]:not(old):checked + label > span > span{
 .main-nav {
   padding: 0.1em;
   z-index: 56;
+  float: right;
+  position: relative;
 }
 
 .main-nav ul {
@@ -113,12 +115,16 @@ input[type=radio]:not(old):checked + label > span > span{
   list-style: none;
   clear: both;
   z-index: 56;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 200px;
 }
 
-.main-nav:hover ul {
+/*.main-nav:hover ul {
   display: block;
   z-index: 56;
-}
+}*/
 
 .main-nav li {
   display: inline;
@@ -136,7 +142,7 @@ input[type=radio]:not(old):checked + label > span > span{
   width: 3.75rem;
   padding-top: 0.5rem;
   display: inline-block;
-  /*float: left;*/
+  float: left;
 }
 
 .results-logo {
@@ -154,7 +160,10 @@ input[type=radio]:not(old):checked + label > span > span{
 }
 
 #title-bar h1 {
-  margin: 0 auto;
+  margin: 20px auto;
+  padding: 0;
+  width: calc(100% - 114px);
+  text-align: center;
 }
 
 #about p {
