@@ -21,7 +21,7 @@ filterData.getTransportationOption = function() {
     });
     //console.log($('#address').val());
     filterData.address = $('#address').val();
-    filterData.zoom = parseInt($('#searchable').find('input[type="radio"]:checked').val());
+    //filterData.zoom = parseInt($('#searchable').find('input[type="radio"]:checked').val());
     googleMapping.getUpdatedLocation(filterData);
   });
 };
