@@ -1,6 +1,7 @@
 'use strict';
 
 (function(module) {
+  //all the lyft api data
 
   var lyftObject = {};
 
@@ -13,7 +14,7 @@
     });
     var eta = lyft[0].eta_seconds;
     console.log('lyft eta from attachEta', eta);
-    return eta;
+    return eta; //return eta in seconds
   };
 
   lyftObject.getInfo = function(callback, selectionObject) {
@@ -29,7 +30,8 @@
         var eta = lyftObject.attachEta();
         moreInfo.lyftEta(eta);
         console.log('get info worked');
-        // var etaTransform = etaObject.etaTransform(eta);
+      //STRETCH - for changing max wait/walk town
+        //var etaTransform = etaObject.etaTransform(eta);
         callback(etaObject.context, eta,'lyft-logo');
       },
       error: function(jqXHR, textStatus, errorThrown) {

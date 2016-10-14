@@ -1,6 +1,7 @@
 'use strict';
 
 (function(module) {
+  //all the uber api data
 
   var uberObject = {};
 
@@ -12,7 +13,7 @@
     });
     var eta = uberX[0].estimate;
     console.log('uber eta from attachEta', eta);
-    return eta;
+    return eta; //returns eta in seconds
   };
 
   uberObject.getInfo = function(callback, selectionObject) {
