@@ -93,7 +93,7 @@ input[type=radio]:not(old):checked + label > span > span{
   margin: 0 auto;
   background-color: rgb(255,236,139);
   display: none;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .lyft-pop h2, .uber-pop h2 {
