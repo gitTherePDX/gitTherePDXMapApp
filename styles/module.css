@@ -79,11 +79,16 @@ input[type=radio]:not(old):checked + label > span > span{
   background-image :         linear-gradient(rgb(179,217,140),rgb(153,204,102));
 }
 
-.lyft-pop, .uber-pop, .biketown-map {
+ .biketown-map {
   width: 800px;
   min-height: 600px;
   outline: 1px solid black;
   display: none;
+}
+
+.lyft-pop, .uber-pop {
+  width: 95%;
+  margin: 0 auto;
 }
 
 .site-header {
@@ -221,8 +226,9 @@ input[type=radio]:not(old):checked + label > span > span{
 
 #eta-canvas {
   border: 1px solid black;
-  height: 75%;
+  height: 100%;
   width: 100%;
+  margin: 1.5% 0;
 }
 
 /*popup visualizations*/
@@ -249,5 +255,9 @@ input[type=radio]:not(old):checked + label > span > span{
   main {
     max-width: 940px;
     margin: 0 auto;
+  }
+
+  #searchable {
+    font-size: 1.5rem;
   }
 }
