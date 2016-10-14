@@ -84,6 +84,7 @@ input[type=radio]:not(old):checked + label > span > span{
   min-height: 600px;
   outline: 1px solid black;
   display: none;
+  margin: 0 auto;
 }
 
 .lyft-pop, .uber-pop {
