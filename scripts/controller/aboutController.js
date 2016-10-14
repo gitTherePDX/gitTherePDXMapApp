@@ -1,5 +1,6 @@
 (function(module){
-
+  //controls routing for about page
+  
   var aboutControl = {};
 
   aboutControl.aboutReveal = function() {

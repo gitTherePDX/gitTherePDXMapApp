@@ -1,4 +1,6 @@
 (function(module){
+  //controls routing to home page
+
   var appControl = {};
 
   //no real easy way to persist previously opened more info tab in app window so this is a work around

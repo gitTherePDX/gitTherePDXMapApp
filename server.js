@@ -1,10 +1,14 @@
 'use strict';
+
+//RESTful api call for lyft to get new OAuth
 var superagent = require('superagent');
+//RESTful api call for uber & lyft & biketown
 var express = require('express'),
   requestProxy = require('express-request-proxy'),
   port = process.env.PORT || 3000,
   app = express();
 
+//RESTful api call for uber
 function proxyUber(request, response) {
   console.log('Routing Uber request for ');
   console.log('the request is ', request.params);
@@ -21,6 +25,7 @@ function proxyUber(request, response) {
   }))(request, response);
 };
 
+//RESTful api call for lyft if valid OAuth token
 function proxyLyft(request, response) {
   var bearerToken;
   // console.log('Routing Lyft request for ');
@@ -40,8 +45,10 @@ function proxyLyft(request, response) {
   }))(request, response);
 }
 
+//RESTful api call for new lyft OAuth token
 function proxyLyftGetAuth(request, response) {
   console.log(request.params);
+  //get new OAuth token
   superagent
     .post('https://api.lyft.com/oauth/token')
     .send({grant_type: 'client_credentials'})
@@ -53,6 +60,7 @@ function proxyLyftGetAuth(request, response) {
       } else {
         console.log('success');
         var token = res.body.access_token;
+        //new api request
         superagent
           .get('https://api.lyft.com/v1/eta')
           .query({lat:request.params[0].split('/')[0]})
@@ -73,18 +81,7 @@ function proxyLyftGetAuth(request, response) {
     });
 };
 
-//   (requestProxy({
-//     "url": "https://api.lyft.com/oauth/token",
-//     "headers": {
-//       "authorization": "Basic " + process.env.LYFT_TOKEN,
-//       "content-type": "application/json"
-//     },
-//     "processData": false,
-//     "data": "{\"grant_type\": \"client_credentials\", \"scope\": \"public\"}"
-//   }))(request, response);
-//
-// }
-
+//RESTful api call for biketown
 function proxyBikeTown(request, response) {
   console.log(request.params);
   (requestProxy({
@@ -92,6 +89,7 @@ function proxyBikeTown(request, response) {
   }))(request, response);
 };
 
+//routes
 app.get('/uber/*', proxyUber);
 
 app.get('/lyft/*', proxyLyft);

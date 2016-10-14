@@ -1,3 +1,8 @@
+'use strict';
+//sets up form submit
+
+//TODO: put in an iife and expose to global scope
+
 var filterData = {
   address: '',
   Biketown: false,
@@ -7,30 +12,28 @@ var filterData = {
   LyftOAuth: ' 1',
 };
 
+//click handler for the transportation options
 filterData.getTransportationOption = function() {
   $('form').on('submit', function(event){
     event.preventDefault();
     var $this = $(this);
     $this.find('input[type="checkbox"]:checked').each(function() {
-      //console.log($(this).attr('value'), 'checked');
       filterData[$(this).attr('value')] = true;
     });
     $this.find('input[type="checkbox"]:not(:checked)').each(function(){
-      //console.log($(this).attr('value'), 'not checked');
       filterData[$(this).attr('value')] = false;
     });
-    //console.log($('#address').val());
     filterData.address = $('#address').val();
-    //filterData.zoom = parseInt($('#searchable').find('input[type="radio"]:checked').val());
     googleMapping.getUpdatedLocation(filterData);
   });
 };
 
-/*filterData.getZoom = function() {
-  $('form').on('submit', function(event){
-
-  });
-};*/
+//TODO: wire up click handlers for max wait/walk times
+// filterData.getZoom = function() {
+//   $('form').on('submit', function(event){
+//
+//   });
+// };
+//filterData.getZoom();
 
 filterData.getTransportationOption();
-//filterData.getZoom();
