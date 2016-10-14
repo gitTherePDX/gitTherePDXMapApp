@@ -1,6 +1,7 @@
 'use strict';
 
 (function(module) {
+//contains methods, data and api calls for google maps
 
   var googleMapping = {};
 
@@ -9,24 +10,10 @@
   googleMapping.userLocationInput = {};
   googleMapping.locations = [];
   googleMapping.locationsParsed = [];
-  //placeholder until we can import the data
-  googleMapping.locationsAddresses = [
-    '620 SW 5th Ave, Portland, OR 97204',
-    '300-398 SW Market St, Portland, OR 97201',
-    '1800 SW Montgomery St, Portland, OR 97201',
-    '1028 SE Water Ave, Portland, OR 97214',
-    '1202-1210 Southeast Hawthorne Boulevard, Portland'
-  ];
 
-  //placeholder of lat/lng of above addresses...again for testing map api
-  googleMapping.locationsAddressesLatLng = [
-    // {lat:45.5190046,lng:-122.67688190000001},
-    // {lat:45.5122623,lng:-122.67883110000002},
-    // {lat:45.5115165,lng:-122.68207330000001},
-    // {lat:45.5153234,lng:-122.6655189},
-    // {lat:45.5122046,lng:-122.65358530000003}
-  ];
-
+  //TODO: because of SSL requirements this method can not be used on heroku
+  //      method gets current location of device for app use
+  //      find work around in future
   // googleMapping.getCurrentLocation = function(callbackFunction) {
   //   if (navigator.geolocation) {
   //     navigator.geolocation.getCurrentPosition(function(position) {
@@ -50,6 +37,7 @@
   //   };
   // };
 
+  //gets location data based on input field
   googleMapping.getUpdatedLocation = function(selectionObject) {
     $('.biketown-map').empty();
     etaObject.buildCanvas();
@@ -69,12 +57,11 @@
         if (filterData.Biketown) {
           biketownObject.getStationInfo(mapViews.createMarkers,etaObject.drawLogo);
         };
-        //update with current location
-        //uberObject.updateInfo(googleMapping.currentLocation);
-        //lyftObject.updateInfo(googleMapping.currentLocation);
       });
 
-      /**TODO Navigator geolocation will be deprecated until ssl encryption can be used for this app**/
+    //TODO: find host that does not have SSL issues
+    //Navigator geolocation will be deprecated until
+    //ssl encryption can be used for this app
     // } else if (navigator.geolocation) {
     //   navigator.geolocation.getCurrentPosition(function(position) {
     //     googleMapping.currentLocation = {
@@ -98,8 +85,8 @@
 
 
     } else {
-      //update with current location
-      googleMapping.currentLocation = {lat: 45.5231, lng: -122.6765};
+      //update with Pioneer Courhouse square location as default
+      googleMapping.currentLocation = {lat: 45.5189, lng: -122.6793};
       if (filterData.Uber) {
         uberObject.getInfo(etaObject.drawLogo, googleMapping.currentLocation);
       }
@@ -134,6 +121,7 @@
     });
   };
 
+  //creates a google map object
   googleMapping.createMap = function(zoomVal, latLng) {
     var map = new google.maps.Map(document.querySelectorAll('.biketown-map')[0], {
       zoom: zoomVal,
@@ -141,11 +129,6 @@
     });
     return map;
   };
-
-  // googleMapping.initMap = function() {
-  //   googleMapping.getCurrentLocation(mapViews.setMapOnAll);
-  //   //firstFunction(, secondFunction);
-  // };
 
   module.googleMapping = googleMapping;
 })(window);
