@@ -18,6 +18,7 @@
       var alt = $(this).attr('alt');
       $('#more-info > div[class|=' + alt + ']').show().siblings().hide();
       console.log(alt);
+      appControl.currOpen = alt;
       if (alt === 'biketown') {
         google.maps.event.trigger(googleMapping.map, 'resize');
         googleMapping.map.setCenter(googleMapping.currentLocation);
