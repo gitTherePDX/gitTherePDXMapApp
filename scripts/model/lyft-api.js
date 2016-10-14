@@ -12,7 +12,7 @@
       return car.display_name === 'Lyft';
     });
     var eta = lyft[0].eta_seconds;
-    //console.log('lyft eta from attachEta', eta);
+    console.log('lyft eta from attachEta', eta);
     return eta;
   };
 
@@ -29,8 +29,8 @@
         var eta = lyftObject.attachEta();
         moreInfo.lyftEta(eta);
         console.log('get info worked');
-        var etaTransform = etaObject.etaTransform(eta);
-        callback(etaObject.context, etaTransform, etaObject.canvas.clientHeight / 6, 'lyft-logo', etaObject.etaLogos);
+        // var etaTransform = etaObject.etaTransform(eta);
+        callback(etaObject.context, eta,'lyft-logo');
       },
       error: function(jqXHR, textStatus, errorThrown) {
         console.log(jqXHR, textStatus, errorThrown);

@@ -11,7 +11,7 @@
       return car.display_name === 'uberX';
     });
     var eta = uberX[0].estimate;
-    //console.log('uber eta from attachEta', eta);
+    console.log('uber eta from attachEta', eta);
     return eta;
   };
 
@@ -28,7 +28,7 @@
         uberObject.dataAll = data;
         var eta = uberObject.attachEta();
         moreInfo.uberEta(eta);
-        var etaTransform = etaObject.etaTransform(eta);
+        // var etaTransform = etaObject.etaTransform(eta);
 
         callback(etaObject.context, eta, 'uber-logo');
       },

@@ -38,7 +38,7 @@
 
     //draw a rectangle rect(x, y, width, height)
     etaObject.context.beginPath();
-    etaObject.context.rect(40, (etaObject.canvas.clientHeight / yDivisor) + 5, etaObject.canvas.clientWidth / (eta / 20), etaObject.canvas.clientHeight / 6.3);
+    etaObject.context.rect(40, (etaObject.canvas.clientHeight / yDivisor) + 5, (etaObject.canvas.clientWidth * eta) / 600, etaObject.canvas.clientHeight / 6.3);
     etaObject.context.fillStyle = color;
     etaObject.context.fill();
 
@@ -65,10 +65,12 @@
 
     //add text for scale
     etaObject.context.fillStyle = 'red';
-    etaObject.context.font = '1rem sansserif';
+    etaObject.context.font = '1.5rem sansserif';
     etaObject.context.fillText('0 min', 40, 20);
-    etaObject.context.font = '1rem sansserif';
-    etaObject.context.fillText('15 min', (etaObject.canvas.clientWidth - 50), 20);
+    etaObject.context.font = '1.5rem sansserif';
+    etaObject.context.fillText('5 min', (etaObject.canvas.clientWidth / 2) - 40, 20);
+    etaObject.context.font = '1.5rem sansserif';
+    etaObject.context.fillText('10 min', (etaObject.canvas.clientWidth - 80), 20);
   };
 
   etaObject.etaTransform = function(eta) {
