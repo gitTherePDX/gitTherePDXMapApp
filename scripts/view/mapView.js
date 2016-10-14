@@ -69,7 +69,7 @@
 
   //put click handlers in place
   mapViews.initializePage = function() {
-    mapViews.changeZoom();
+    // mapViews.changeZoom();
     mapViews.setUpHamburger();
   };
 
