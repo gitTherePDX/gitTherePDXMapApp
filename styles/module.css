@@ -88,16 +88,32 @@ input[type=radio]:not(old):checked + label > span > span{
 }
 
 .lyft-pop, .uber-pop {
-  width: 95%;
+  width: 75%;
   margin: 0 auto;
-  background-color: rgba(255,165,0,0.75);
+  background-color: rgb(255,236,139);
   display: none;
+  overflow: auto;
+}
+
+.lyft-pop h2, .uber-pop h2 {
+  font-size: 1.7rem;
+  margin: 0 auto;
 }
 
 .lyft-pop img, .uber-pop img {
   width: 30%;
+  padding: 5%;
+  /*margin: 0 auto;*/
+}
 
-  margin: 0 auto;
+.lyft-pop div, .uber-pop div {
+  width: 35%;
+  heigth: 100%;
+  padding: 5%;
+  /*border: 1px solid black;*/
+  float: right;
+  /*display: inline;*/
+
 }
 
 .site-header {
@@ -266,6 +282,12 @@ input[type=radio]:not(old):checked + label > span > span{
     display: inline;
     margin: 0 auto;
     padding: 0 11.0%;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .lyft-pop h2, .uber-pop h2 {
+    font-size: 2.4rem;
   }
 }
 
