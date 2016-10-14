@@ -43,7 +43,7 @@
     <div id="searchable" class="corner-curve">
       <form action="">
         <div id="location" class="corner-curve">
-          <label>Location </label><input class="corner-curve" id="address" name="Location" style="width: 75%" placeholder="Enter address or closest intersection" required>
+          <label>Location </label><input class="corner-curve" id="address" name="Location" style="width: 65%" placeholder="Enter address or intersection" required>
         </div>
 
 <!-- <div>
@@ -82,6 +82,9 @@
 
 
     <div id="results" class="corner-curve">
+
+      <div id="scroll-prompt">Pick option and scroll down for info</div>
+
       <ul id="result-clickables">
         <li><img class="results-logo" src="assets/biketown-logo.png" alt="biketown"></li>
         <li><img class="results-logo" src="assets/uber-logo.png" alt="uber"></li>
@@ -126,7 +129,7 @@
 
     <!-- map is now a pop-up if user picks biketown -->
     <section id="more-info">
-      <div class="biketown-map">
+      <div class="biketown-map corner-curve">
       </div>
 
       <!-- uber popup -->
