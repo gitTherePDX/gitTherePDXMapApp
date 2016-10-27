@@ -10,6 +10,11 @@
   biketownObject.closestStation;
 
   biketownObject.getTimefromOrigin = function(origin, marker) {
+    //Take the time to name your variables a little more semantically. I know it can be
+    //annoying to have to try and think of a name for everything when you just want to
+    //get things working but it will work wonders when it comes to the maintainability
+    //of your code.
+
     var lat1 = origin.lat;
     var lon1 = origin.lng;
 
@@ -36,6 +41,9 @@
       method: 'GET',
       //on success data from api
       success: function(data) {
+        //It looks like the code here and in the ajax call that's in your error handler are pretty much
+        //the same. When you see something like that it's a good chance to abstract it out into
+        //a function.
         biketownObject.allStations = data.data.stations;
         googleMapping.map = googleMapping.createMap(filterData.zoom, googleMapping.currentLocation);
         biketownObject.allStations = biketownObject.allStations.map(function(object){

@@ -29,6 +29,21 @@
     var color;
     var img = document.getElementById(imgId);
 
+    //conditionals like this are places that I like to use objects as maps for these properties
+    //so for instance:
+    //var logoProps = {
+    //  'uber-logo':{yDivisor: 2.5, color: 'rgba(48, 48, 48, 0.75)'},
+    //  'lyft-logo':{yDivisor: 1.35, color: 'rgba(205, 41, 144, 0.75)'},
+    //  'bike-logo':{yDivisor: 8, color: 'rgba(255, 69, 0, 0,75)'}
+    //}
+    //
+    //yDivisor = logoProps[imgId].yDivisor
+    //color = logoProps[color].color
+    //
+    //In the end this doesn't really save you too many lines of code. But I like the organization
+    //that comes with setting all of your properties in one place. It's also just something to keep
+    //in mind that you can often use objects to stand in for switches or big series of conditionals.
+
     if (imgId === 'uber-logo') {
       yDivisor = 2.5;
       color = 'rgba(48,48,48,0.75)';
@@ -42,6 +57,9 @@
 
     //draw graph bars
     etaObject.context.beginPath();
+    //when you have numbers like this that you're doing math with sometimes it's good to set them as variables. It can
+    //feel a little strange to set something as a variable only to use it in one place but it lends semantic meaning
+    //to the values you're using in calculations and furthermore allows you to adjust them all in one place.
     etaObject.context.rect(40, (etaObject.canvas.clientHeight / yDivisor) + 5, (etaObject.canvas.clientWidth * eta) / 600, etaObject.canvas.clientHeight / 6.3);
     etaObject.context.fillStyle = color;
     etaObject.context.fill();
@@ -70,6 +88,8 @@
     etaObject.context.fillRect(0,0,etaObject.canvas.clientWidth,etaObject.canvas.clientHeight);
 
     //add text for top scale
+
+    //what's up with the fillText property being set to the same thing three times?
     etaObject.context.fillStyle = 'red';
     etaObject.context.font = '1.5rem sansserif';
     etaObject.context.fillText('0 min', 40, 20);
