@@ -17,11 +17,14 @@
   };
 
   //click handler events for the results logos - uses alt value of img
+  //alts have a purpose in an img tag. Even if you're not really using it for anything
+  //if you need to store data on an element for use in your scripts you should use a
+  //data attribute.
   moreInfo.showMoreInfo = function() {
     $('.results-logo').on('click', function() {
       var alt = $(this).attr('alt');
       $('#more-info > div[class|=' + alt + ']').show().siblings().hide();
-      
+
       if (alt === 'biketown') {
         google.maps.event.trigger(googleMapping.map, 'resize');
         googleMapping.map.setCenter(googleMapping.currentLocation);

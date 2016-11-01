@@ -1,5 +1,8 @@
 'use strict';
 
+//Try not to let commented out code into your final submissions. In this case you have preey much a whole
+//file commented out, so you pretty much could have just taken the whole thing out.
+
 //event click for the logos about the canvas
 
 //TODO: wire up click handlers for logos in the canvas
